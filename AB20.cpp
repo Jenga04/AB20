@@ -4,7 +4,6 @@
 #include "Windows.h"
 #include <string>
 #include <iostream>
-#include <ctime>
 using namespace std;
 
 class servicio{
@@ -12,14 +11,7 @@ private:
 	int idServicio;
 	string tipoServicio;
 };
-
-servicio::servicio(){
-
-}
-
-servicio::~servicio(){
-}
-class Paciente{
+class paciente{
 private:
 	int idPaciente;
 	string nombre;
@@ -28,12 +20,7 @@ private:
 
 };
 
-Paciente::Paciente(){
-}
-
-Paciente::~Paciente(){
-}
-class Médico{
+class médico{
 private:
 	int idMédico;
 	string nombre;
@@ -41,36 +28,23 @@ private:
 	boolean disponibilidad;
 };
 
-Médico::Médico(){
-}
-
-Médico::~Médico()
-{
-}
 class cita{
 private:
 	int idCita;
-	DATE fecha;
-	clock_t hora;
+	string fechaHora;
+	int urgencia;
+	int idPaciente;
+	int idMédico;
 };
 
-cita::cita()
-{
-}
-
-cita::~cita()
-{
-}
 class Hospital{
 private:
-
-
-};
-
-Hospital::Hospital()
-{
-}
-
-Hospital::~Hospital()
-{
-}
+	vector<paciente> listaPacientes;
+	vector<médico> listaMédicos;
+	vector<cita> listaCitas;
+	vector<servicio> listaServicios;
+public:
+	void registrarPacientes(
+		int id, 
+		string nombre, 
+		DATE fecha)
