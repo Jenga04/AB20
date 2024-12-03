@@ -4,7 +4,6 @@
 #include "Windows.h"
 #include <string>
 #include <iostream>
-#include <ctime>
 #include <vector>
 
 using namespace std;
@@ -107,6 +106,7 @@ public:
 	}
 };
 int main() {
+	SetConsoleOutputCP(1252);
 	hospital hospital;
 
 	hospital.registrarPaciente (1, "Jeremy James Atkinson", "27/11/2024");
