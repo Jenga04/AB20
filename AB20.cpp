@@ -1,6 +1,9 @@
 ﻿// AB20.cpp: define el punto de entrada de la aplicación.
 //
-#include "AB20.h"
+#include "Paciente.h"
+#include "Médico.h"
+#include "Cita.h"
+#include "Hospital.h"
 #include "Windows.h"
 #include <string>
 #include <iostream>
@@ -8,12 +11,6 @@
 
 using namespace std;
 
-class paciente {
-private:
-	int idPaciente;
-	string nombre;
-	string fechaIngreso;
-	string historial;
 public:
 	paciente(int id, string n, string fecha) :
 		idPaciente(id),
@@ -26,12 +23,6 @@ void mostrarDatos() {
 	string getNombre() { return nombre; }
 };
 
-class médico{
-private:
-	int idMédico;
-	string nombre;
-	string especialidad;
-	bool disponibilidad;
 public:
 	médico (int id, string n, string tipo, bool disponible): 
 		idMédico(id), 
@@ -45,13 +36,6 @@ public:
 	string getEspecialidad() { return especialidad; }
 };
 
-class cita {
-private:
-	int idCita;
-	string fechaHora;
-	int idPaciente;
-	int idMédico;
-	int urgencia;
 public:
 	cita (int id, string fecha, int idp, int idm, int urgente):
 		idCita(id),
@@ -68,11 +52,6 @@ public:
 
 };
 
-class hospital {
-private:
-	vector <paciente> listaPacientes;
-	vector <médico> listaMédicos;
-	vector <cita> listaCitas;
 public:
 	void registrarPaciente (int id, string nombre, string fecha) {
 		listaPacientes.push_back(paciente(id, nombre, fecha));
