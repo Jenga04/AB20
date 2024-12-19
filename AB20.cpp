@@ -1,13 +1,14 @@
 ﻿// AB20.cpp: define el punto de entrada de la aplicación.
 //
-#include "Paciente.h"
-#include "Médico.h"
-#include "Cita.h"
-#include "Hospital.h"
 #include "Windows.h"
 #include <string>
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include "Paciente.h"
+#include "Médico.h"
+#include "Cita.h"
+#include "Hospital.h"
 
 using namespace std;
 
@@ -24,17 +25,7 @@ void añadirCita(const string& archivoPaciente) {
 	cout << "Nombre del médico: ";
 	cin.ignore();
 	getline(cin, médico);
-	string  = cifrado(texto, clave);
-	entradas.push_back(texto);
-	ofstream archivo(archivoPaciente, ios::app);
-	if (archivo.is_open()) {
-		archivo << textoCifrado << endl;
-		archivo.close();
-		cout << "Entrada añadida correctamente." << endl;
-	}
-	else {
-		cout << "No se pudo abrir el archivo." << endl;
-	}
+
 }
 void mostrarMenú() {
 	cout << "\n Menú";
@@ -45,39 +36,22 @@ void mostrarMenú() {
 	cout << "Seleccione una opción: ";
 }
 int main() {
-		SetConsoleOutputCP(1252);
-		string archivoPaciente = "paciente.csv";
-		string archivoMédico = "médico.csv";
-		string archivoCitas = "citas.csv";
-		int opcion;
+	hospital Hospital;
+	SetConsoleOutputCP(1252);
+	int opcion;
 
-		do {
-			mostrarMenú();
-			cin >> opcion;
+	do {
+		mostrarMenú();
+		cin >> opcion;
 
-			switch (opcion) {
+		switch (opcion) {
+		case 1: {
+			int opcionPaciente;
+			switch (opcionPaciente) {
 			case 1:
-				cin >> opcion;
-				switch (opcion) {
-				case 1:
-
-
+				Hospital.listadoPacientes();
 				break;
-			case 2:
-				añadirEntrada(nombreArchivo, entradas);
-				break;
-			case 3:
-				borrarEntrada(nombreArchivo, entradas);
-				break;
-			case 4:
-				borrarArchivo(nombreArchivo, entradas);
-				break;
-			case 0:
-				cout << "Saliendo del programa.";
-				break;
-			default:
-				cout << "Opción no disponible, por favor, elija una opción válida" << endl;
-			}
-		} while (opcion != 0);
-		return 0;
-	}
+			case 2: {
+				int id;
+				string nombre;
+				cout 

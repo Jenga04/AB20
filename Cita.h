@@ -13,7 +13,7 @@ public:
 		idMédico(idm) {
 		this->urgencia = (urgencia < 1) ? 1 : (urgencia > 5) ? 5 : urgencia;
 	}
-	void mostrarDatos() {
+	cita mostrarCitas() {
 		cout << "ID de cita: " << idCita << ".\nFecha y hora: " << fechaHora << ".\nID del paciente: " << idPaciente << ".\nID del médico: " << idMédico << ". \nUrgencia: " << urgencia << endl;
 	}
 	string getFechaHora() { return fechaHora; }
