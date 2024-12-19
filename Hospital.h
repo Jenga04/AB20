@@ -5,7 +5,7 @@
 class hospital {
 private:
 	vector <paciente> listaPacientes;
-	vector <médico> listaMédicos;
+	vector <medico> listaMedicos;
 	vector <cita> listaCitas;
 public:
 	void listadoPacientes() {
@@ -17,14 +17,14 @@ public:
 	void registrarPaciente(paciente Paciente) {
 		listaPacientes.push_back(Paciente);
 	};
-	void listadoMédicos() {
+	void listadoMedicos() {
 		cout << "Lista de médicos:\n";
-		for (auto& médico : listaMédicos) {
+		for (auto& médico : listaMedicos) {
 			médico.datosMédico();
 		}
 	}
-	void registrarMédico(médico medico) {
-		listaMédicos.push_back(medico);
+	void registrarMédico(medico medico) {
+		listaMedicos.push_back(medico);
 	}
 	void listadoCitas() {
 		cout << "Lista de citas: \n";

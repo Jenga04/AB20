@@ -1,24 +1,24 @@
 #include <string>
-class médico {
+class medico {
 private:
-	int idMédico;
+	int idMedico;
 	string nombre;
 	string especialidad;
 	bool disponibilidad;
 
 public:
-	médico(int id, string n, string tipo, bool disponible) :
-		idMédico(id),
+	medico(int id, string n, string tipo, bool disponible) :
+		idMedico(id),
 		nombre(n),
 		especialidad(tipo),
 		disponibilidad(true) {}
 
 	void datosMédico() {
-		cout << "ID del médico: " << idMédico << ".\nNombre: " << nombre << ".\nEspecialidad: " << especialidad << ".\nDisponibile:  " << (disponibilidad ? "Si" : "No") << endl;
+		cout << "ID del medico: " << idMedico << ".\nNombre: " << nombre << ".\nEspecialidad: " << especialidad << ".\nDisponibile:  " << (disponibilidad ? "Si" : "No") << endl;
 	}
 
 	int getID() {
-		return idMédico;
+		return idMedico;
 	}
 	string getNombre() {
 		return nombre;

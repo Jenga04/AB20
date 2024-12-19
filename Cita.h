@@ -3,26 +3,26 @@ private:
 	int idCita;
 	string fechaHora;
 	int idPaciente;
-	int idMédico;
+	int idMedico;
 	int urgencia;
 public:
 	cita(int id, string fecha, int idp, int idm, int urgente) :
 		idCita(id),
 		fechaHora(fecha),
 		idPaciente(idp),
-		idMédico(idm) {
+		idMedico(idm) {
 		this->urgencia = (urgencia < 1) ? 1 : (urgencia > 5) ? 5 : urgencia;
 	}
 
 	void datosCitas() {
-		cout << "ID de cita: " << idCita << ".\nFecha y hora: " << fechaHora << ".\nID del paciente: " << idPaciente << ".\nID del médico: " << idMédico << ". \nUrgencia: " << urgencia << endl;
+		cout << "ID de cita: " << idCita << ".\nFecha y hora: " << fechaHora << ".\nID del paciente: " << idPaciente << ".\nID del médico: " << idMedico << ". \nUrgencia: " << urgencia << endl;
 	}
 
 	int getIdPaciente() {
 		return idPaciente;
 	}
 	int getIDMédico(){
-		return idMédico;
+		return idMedico;
 		}
 	string getFechaHora() { 
 		return fechaHora; 

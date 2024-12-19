@@ -60,7 +60,7 @@ void menuPacientes(hospital& Paciente) {
 			} while (opcionP != 0);
 }
 
-void menuMédicos(hospital& medico) {
+void menuMedicos(hospital& Medico) {
 	cout << "Médicos\n";
 	cout << "1: Lista de médicos \n";
 	cout << "2: Registrar médico \n";
@@ -73,7 +73,7 @@ void menuMédicos(hospital& medico) {
 
 	switch (opcionM) {
 	case 1: 
-		medico.listadoMédicos();
+		Medico.listadoMedicos();
 		break;
 	case 2: {
 		int id;
@@ -89,7 +89,7 @@ void menuMédicos(hospital& medico) {
 		cout << "Está disponible? (1: Si, 0: no)";
 		cin >> disponibilidad;
 		cout << "Médico registrado correctamente.\n";
-		medico.registrarMédico(médico(id, nombre, tipo, disponibilidad));
+		Medico.registrarMédico(medico(id, nombre, tipo, disponibilidad));
 		break;
 		}
 	case 0:
@@ -153,7 +153,7 @@ int main() {
 			menuPacientes(Hospital);
 			break;
 		case 2:
-			menuMédicos(Hospital);
+			menuMedicos(Hospital);
 			break;
 		case 3:
 			menuCitas(Hospital);
