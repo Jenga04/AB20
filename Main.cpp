@@ -23,7 +23,7 @@ void mostrarMenú() {
 	cout << "Seleccione una opción: ";
 }
 
-void menuPacientes(hospital& Hospital) {
+void menuPacientes(hospital& Paciente) {
 	cout << "Pacientes \n\n";
 	cout << "1: Lista de pacientes \n";
 	cout << "2: Registrar paciente \n";
@@ -36,7 +36,7 @@ void menuPacientes(hospital& Hospital) {
 
 	switch (opcionP) {
 			case 1:
-				Hospital.listadoPacientes();
+				Paciente.listadoPacientes();
 				break;
 			case 2: {
 				int id;
@@ -48,18 +48,10 @@ void menuPacientes(hospital& Hospital) {
 				getline(cin, n);
 				cout << "Ingrese fecha de ingreso (DD/MM/AAAA): ";
 				getline(cin, fecha);
-				Hospital.registrarPaciente(paciente(id, n, fecha));
+				Paciente.registrarPaciente(paciente(id, n, fecha));
 				cout << "Paciente registrado correctamente.\n";
 				break;
 			}
-			case 3: {
-				break;
-			}
-			case 4: {
-				break;
-			}
-			case 5:
-				break;
 			case 0:
 				cout << "Volviendo al menú principal \n";
 			default:
@@ -68,7 +60,7 @@ void menuPacientes(hospital& Hospital) {
 			} while (opcionP != 0);
 }
 
-void menuMédicos(hospital& Hospital) {
+void menuMédicos(hospital& medico) {
 	cout << "Médicos\n";
 	cout << "1: Lista de médicos \n";
 	cout << "2: Registrar médico \n";
@@ -81,7 +73,7 @@ void menuMédicos(hospital& Hospital) {
 
 	switch (opcionM) {
 	case 1: 
-		Hospital.listadoMédicos();
+		medico.listadoMédicos();
 		break;
 	case 2: {
 		int id;
@@ -97,17 +89,9 @@ void menuMédicos(hospital& Hospital) {
 		cout << "Está disponible? (1: Si, 0: no)";
 		cin >> disponibilidad;
 		cout << "Médico registrado correctamente.\n";
-		Hospital.registrarMédico(médico(id, nombre, tipo, disponibilidad));
+		medico.registrarMédico(médico(id, nombre, tipo, disponibilidad));
 		break;
 		}
-	case 3: {
-		break;
-	}
-	case 4: {
-		break;
-	}
-	case 5:
-		break;
 	case 0:
 		cout << "Volviendo al menú principal \n";
 	default:
@@ -116,7 +100,7 @@ void menuMédicos(hospital& Hospital) {
 	} while (opcionM != 0);
 }
 
-void menuCitas(hospital& Hospital) {
+void menuCitas(hospital& Cita) {
 	cout << "Citas";
 	cout << "1: Lista de citas \n";
 	cout << "2: Añadir cita \n";
@@ -129,7 +113,7 @@ void menuCitas(hospital& Hospital) {
 
 	switch (opcionC) {
 	case 1:
-		Hospital.listadoCitas();
+		Cita.listadoCitas();
 		break;
 	case 2: {
 		int id, idp, idm, urgencia;
@@ -144,7 +128,7 @@ void menuCitas(hospital& Hospital) {
 		cin >> fecha;
 		cout << "Urgencia  (1 a 5): ";
 		cin >> urgencia;
-		Hospital.añadirCita(cita(id, fecha, idp, idm, urgencia));
+		Cita.añadirCita(cita(id, fecha, idp, idm, urgencia));
 		break;
 	}
 	case 0:
@@ -176,4 +160,5 @@ int main() {
 			break;
 		}
 	} while (opcion != 0);
+	return 0;
 }

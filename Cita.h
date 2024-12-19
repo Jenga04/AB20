@@ -18,17 +18,19 @@ public:
 		cout << "ID de cita: " << idCita << ".\nFecha y hora: " << fechaHora << ".\nID del paciente: " << idPaciente << ".\nID del médico: " << idMédico << ". \nUrgencia: " << urgencia << endl;
 	}
 
-	int getId() {
-		return idCita;
+	int getIdPaciente() {
+		return idPaciente;
 	}
+	int getIDMédico(){
+		return idMédico;
+		}
 	string getFechaHora() { 
 		return fechaHora; 
 	}
-	int getUrgencia() { 
-		return urgencia; 
-	}
-
 	void setFechaHora(const string& nuevaFecha) {
 		fechaHora = nuevaFecha;
+	}
+	int setUrgencia() { 
+		return urgencia; 
 	}
 };

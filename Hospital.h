@@ -14,8 +14,8 @@ public:
 			paciente.DatosPaciente();
 		}
 	}
-	void registrarPaciente(paciente paciente) {
-		listaPacientes.push_back(paciente);
+	void registrarPaciente(paciente Paciente) {
+		listaPacientes.push_back(Paciente);
 	};
 	void listadoMédicos() {
 		cout << "Lista de médicos:\n";
@@ -32,7 +32,7 @@ public:
 			cita.datosCitas();
 		}
 	}
-	void añadirCita(cita cita) {
-		listaCitas.push_back(cita);
+	void añadirCita(cita Cita) {
+		listaCitas.push_back(Cita);
 	}
 };

@@ -26,7 +26,7 @@ public:
 	string getEspecialidad() {
 		return especialidad;
 	}
-	bool est·Disponible() {
+	bool estaDisponible() {
 		return disponibilidad;
 	}
 	void cambiarDisponibilidad(bool estado) {
