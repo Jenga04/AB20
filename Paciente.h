@@ -11,6 +11,7 @@ public:
 		idPaciente(id),
 		nombre(n),
 		fechaIngreso(fecha) {}
+
 	void DatosPaciente() {
 		cout << "ID del paciente: " << idPaciente << ".\nNombre: " << nombre << ".\nFecha de ingreso: " << fechaIngreso << endl;
 	}
