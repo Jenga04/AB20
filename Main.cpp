@@ -1,6 +1,5 @@
 ﻿// AB20.cpp: define el punto de entrada de la aplicación.
 //
-#include "Windows.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -9,6 +8,7 @@
 #include "Médico.h"
 #include "Cita.h"
 #include "Hospital.h"
+#include "Windows.h"
 
 using namespace std;
 
@@ -35,33 +35,30 @@ void menuPacientes(hospital& Hospital) {
 	int opcionP;
 
 	switch (opcionP) {
-			case 1: {
+			case 1:
+				Hospital.listadoPacientes();
+				break;
+			case 2: {
 				int id;
-				string nombre, fecha;
+				string n, fecha;
 				cout << "Ingrese ID: ";
 				cin >> id;
 				cout << "Ingrese nombre: ";
 				cin.ignore();
-				getline(cin, nombre);
+				getline(cin, n);
 				cout << "Ingrese fecha de ingreso (DD/MM/AAAA): ";
 				getline(cin, fecha);
-				Hospital.registrarPaciente(paciente(id, nombre, fecha));
-				cout << "Paciente agregado correctamente.\n";
-				break;
-			}
-			case 2: {
+				Hospital.registrarPaciente(paciente(id, n, fecha));
+				cout << "Paciente registrado correctamente.\n";
 				break;
 			}
 			case 3: {
 				break;
 			}
 			case 4: {
-				int opcionBP;
-				cout << "";
 				break;
 			}
 			case 5:
-				Hospital.listadoPacientes();
 				break;
 			case 0:
 				cout << "Volviendo al menú principal \n";
@@ -72,7 +69,92 @@ void menuPacientes(hospital& Hospital) {
 }
 
 void menuMédicos(hospital& Hospital) {
+	cout << "Médicos\n";
+	cout << "1: Lista de médicos \n";
+	cout << "2: Registrar médico \n";
+	cout << "3: Dar de baja un médico \n";
+	cout << "4: Modificar médico \n";
+	cout << "5: Buscar médico \n";
+	cout << "0: Volver al menú principal";
+	cout << "¿Qué desea realizar?";
+	int opcionM;
+
+	switch (opcionM) {
+	case 1: 
+		Hospital.listadoMédicos();
+		break;
+	case 2: {
+		int id;
+		string nombre, tipo;
+		bool disponibilidad;
+		cout << "Ingrese ID: ";
+		cin >> id;
+		cout << "Ingrese nombre: ";
+		cin.ignore();
+		getline(cin, nombre);
+		cout << "Ingrese su especialidad: ";
+		getline(cin, tipo);
+		cout << "Está disponible? (1: Si, 0: no)";
+		cin >> disponibilidad;
+		cout << "Médico registrado correctamente.\n";
+		Hospital.registrarMédico(médico(id, nombre, tipo, disponibilidad));
+		break;
+		}
+	case 3: {
+		break;
+	}
+	case 4: {
+		break;
+	}
+	case 5:
+		break;
+	case 0:
+		cout << "Volviendo al menú principal \n";
+	default:
+		cout << "Elija una opción válida.";
+		break;
+	} while (opcionM != 0);
 }
+
+void menuCitas(hospital& Hospital) {
+	cout << "Citas";
+	cout << "1: Lista de citas \n";
+	cout << "2: Añadir cita \n";
+	cout << "3: Cancelar una cita \n";
+	cout << "4: Modificar cita \n";
+	cout << "5: Buscar cita \n";
+	cout << "0: Volver al menú principal";
+	cout << "¿Qué desea realizar?";
+	int opcionC;
+
+	switch (opcionC) {
+	case 1:
+		Hospital.listadoCitas();
+		break;
+	case 2: {
+		int id, idp, idm, urgencia;
+		string fecha;
+		cout << "ID de la cita: ";
+		cin >> id;
+		cout << "ID del paciente: ";
+		cin >> idp;
+		cout << "ID del médico: ";
+		cin >> idm;
+		cout << "Fecha (DD-MM-YYYY)";
+		cin >> fecha;
+		cout << "Urgencia  (1 a 5): ";
+		cin >> urgencia;
+		Hospital.añadirCita(cita(id, fecha, idp, idm, urgencia));
+		break;
+	}
+	case 0:
+		cout << "Volviendo al menú principal \n";
+	default:
+		cout << "Elija una opción válida.";
+		break;
+	} while (opcionC != 0);
+}
+
 int main() {
 	SetConsoleOutputCP(1252);
 	hospital Hospital;
@@ -86,7 +168,12 @@ int main() {
 		case 1:
 			menuPacientes(Hospital);
 			break;
-
+		case 2:
+			menuMédicos(Hospital);
+			break;
+		case 3:
+			menuCitas(Hospital);
+			break;
 		}
 	} while (opcion != 0);
 }
