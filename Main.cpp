@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include"Paciente.h"
+#include "Paciente.h"
 #include "Médico.h"
 #include "Cita.h"
 #include "Hospital.h"
@@ -25,7 +25,7 @@ void mostrarMenú() {
 
 void menuPacientes(hospital& Hospital) {
 	cout << "Pacientes \n\n";
-	cout << "Lista de pacientes \n";
+	cout << "1: Lista de pacientes \n";
 	cout << "2: Registrar paciente \n";
 	cout << "3: Dar de baja un paciente \n";
 	cout << "4: Modificar paciente \n";
@@ -71,17 +71,12 @@ void menuPacientes(hospital& Hospital) {
 			} while (opcionP != 0);
 }
 
+void menuMédicos(hospital& Hospital) {
+}
 int main() {
 	SetConsoleOutputCP(1252);
 	hospital Hospital;
 	int opcion;
-	int opcionP;
-	int opcionM;
-	int opcionC;
-	int opcionR;
-	int opcionB;
-	int opcionBP;
-	int opcionBM;
 
 	do {
 		mostrarMenú();
@@ -91,8 +86,7 @@ int main() {
 		case 1:
 			menuPacientes(Hospital);
 			break;
-		case 2:
-			menuMédicos
 
+		}
 	} while (opcion != 0);
-};
+}

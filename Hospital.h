@@ -1,25 +1,22 @@
 #include "Paciente.h"
 #include "Médico.h"
 #include "Cita.h"
-#include <vector>
 
 class hospital {
 private:
 	vector <paciente> listaPacientes;
-	//vector <médico> listaMédicos;
-	//vector <cita> listaCitas;
+	vector <médico> listaMédicos;
+	vector <cita> listaCitas;
 public:
-	void registrarPaciente (paciente paciente) {
-		listaPacientes.push_back(paciente);
-	};
 	void listadoPacientes() {
+		cout << "Lista de pacientes:\n";
 		for (auto& paciente : listaPacientes) {
 			paciente.DatosPaciente();
 		}
 	}
-	void registrarMédico(médico medico) {
-		listaMédicos.push_back(medico);
-	}
+	void registrarPaciente (paciente paciente) {
+		listaPacientes.push_back(paciente);
+	};
 
 	void listadoMédicos() {
 		cout << "Lista de médicos:\n";
@@ -27,16 +24,14 @@ public:
 			médico.datosMédico();
 		}
 	}
-	void añadirCita(const string& archivoPaciente) {
-		string nombre;
-		int idPaciente;
-		string médico;
-		int idMédico;
-		cout << "Nombre del paciente: ";
-		cin.ignore();
-		getline(cin, nombre);
-		cout << "Número de identificación: ";
-		cin >> idPaciente;
-		cout << "Nombre del médico: ";
-		cin.ignore();
-		getline(cin, médico);*/
+	void registrarMédico(médico medico) {
+		listaMédicos.push_back(medico);
+	}
+	void listadoCitas() {
+		cout << "Lista de citas: \n";
+		for (auto& cita : listaCitas) {
+			cita.datosCitas(); }
+	}
+	void añadirCita(cita cita) {
+		listaCitas.push_back(cita);
+	};
