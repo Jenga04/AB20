@@ -1,4 +1,4 @@
-/*#include <string>
+#include <string>
 class médico {
 private:
 	int idMédico;
@@ -42,4 +42,4 @@ public:
 	void setDisponibilidad(bool nuevaDisponibilidad) {
 		disponibilidad = nuevaDisponibilidad;
 	}
-};*/
+};

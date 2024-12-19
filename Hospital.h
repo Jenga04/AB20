@@ -1,12 +1,13 @@
 #include "Paciente.h"
 #include "Médico.h"
 #include "Cita.h"
+#include <vector>
 
 class hospital {
 private:
 	vector <paciente> listaPacientes;
-	vector <médico> listaMédicos;
-	vector <cita> listaCitas;
+	//vector <médico> listaMédicos;
+	//vector <cita> listaCitas;
 public:
 	void registrarPaciente (paciente paciente) {
 		listaPacientes.push_back(paciente);
@@ -38,7 +39,4 @@ public:
 		cin >> idPaciente;
 		cout << "Nombre del médico: ";
 		cin.ignore();
-		getline(cin, médico);
-
-	}
-};
+		getline(cin, médico);*/
