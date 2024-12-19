@@ -12,15 +12,15 @@
 
 using namespace std;
 
-void mostrarMenú() {
-	cout << "Menú \n";
+void mostrarMenu() {
+	cout << "Menu \n";
 	cout << "1: Pacientes \n\n";
-	cout << "2: Médicos \n";
+	cout << "2: Medicos \n";
 	cout << "3: Citas \n";
 	cout << "4: Reporte \n";
 	cout << "5: Respaldo de datos \n";
 	cout << "0: Salir \n";
-	cout << "Seleccione una opción: ";
+	cout << "Seleccione una opcion: ";
 }
 
 void menuPacientes(hospital& Paciente) {
@@ -30,8 +30,8 @@ void menuPacientes(hospital& Paciente) {
 	cout << "3: Dar de baja un paciente \n";
 	cout << "4: Modificar paciente \n";
 	cout << "5: Buscar paciente \n";
-	cout << "0: Volver al menú principal";
-	cout << "¿Qué desea realizar?";
+	cout << "0: Volver al menu principal";
+	cout << "¿Que desea realizar?";
 	int opcionP;
 
 	switch (opcionP) {
@@ -53,22 +53,22 @@ void menuPacientes(hospital& Paciente) {
 				break;
 			}
 			case 0:
-				cout << "Volviendo al menú principal \n";
+				cout << "Volviendo al menu principal \n";
 			default:
-				cout << "Elija una opción válida.";
+				cout << "Elija una opcion valida.";
 				break;
 			} while (opcionP != 0);
 }
 
 void menuMedicos(hospital& Medico) {
-	cout << "Médicos\n";
-	cout << "1: Lista de médicos \n";
-	cout << "2: Registrar médico \n";
-	cout << "3: Dar de baja un médico \n";
-	cout << "4: Modificar médico \n";
-	cout << "5: Buscar médico \n";
-	cout << "0: Volver al menú principal";
-	cout << "¿Qué desea realizar?";
+	cout << "Medicos\n";
+	cout << "1: Lista de medicos \n";
+	cout << "2: Registrar medico \n";
+	cout << "3: Dar de baja un medico \n";
+	cout << "4: Modificar medico \n";
+	cout << "5: Buscar medico \n";
+	cout << "0: Volver al menu principal";
+	cout << "¿Que desea realizar?";
 	int opcionM;
 
 	switch (opcionM) {
@@ -86,16 +86,16 @@ void menuMedicos(hospital& Medico) {
 		getline(cin, nombre);
 		cout << "Ingrese su especialidad: ";
 		getline(cin, tipo);
-		cout << "Está disponible? (1: Si, 0: no)";
+		cout << "Esta disponible? (1: Si, 0: no)";
 		cin >> disponibilidad;
-		cout << "Médico registrado correctamente.\n";
+		cout << "Medico registrado correctamente.\n";
 		Medico.registrarMedico(medico(id, nombre, tipo, disponibilidad));
 		break;
 		}
 	case 0:
-		cout << "Volviendo al menú principal \n";
+		cout << "Volviendo al menu principal \n";
 	default:
-		cout << "Elija una opción válida.";
+		cout << "Elija una opcion valida.";
 		break;
 	} while (opcionM != 0);
 }
@@ -107,8 +107,8 @@ void menuCitas(hospital& Cita) {
 	cout << "3: Cancelar una cita \n";
 	cout << "4: Modificar cita \n";
 	cout << "5: Buscar cita \n";
-	cout << "0: Volver al menú principal";
-	cout << "¿Qué desea realizar?";
+	cout << "0: Volver al menu principal";
+	cout << "¿Que desea realizar?";
 	int opcionC;
 
 	switch (opcionC) {
@@ -122,7 +122,7 @@ void menuCitas(hospital& Cita) {
 		cin >> id;
 		cout << "ID del paciente: ";
 		cin >> idp;
-		cout << "ID del médico: ";
+		cout << "ID del medico: ";
 		cin >> idm;
 		cout << "Fecha (DD-MM-YYYY)";
 		cin >> fecha;
@@ -132,9 +132,9 @@ void menuCitas(hospital& Cita) {
 		break;
 	}
 	case 0:
-		cout << "Volviendo al menú principal \n";
+		cout << "Volviendo al menu principal \n";
 	default:
-		cout << "Elija una opción válida.";
+		cout << "Elija una opcion valida.";
 		break;
 	} while (opcionC != 0);
 }
@@ -145,7 +145,7 @@ int main() {
 	int opcion;
 
 	do {
-		mostrarMenú();
+		mostrarMenu();
 		cin >> opcion;
 
 		switch (opcion) {
