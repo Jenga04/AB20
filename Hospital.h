@@ -1,4 +1,4 @@
-/*#include "Paciente.h"
+#include "Paciente.h"
 #include "Médico.h"
 #include "Cita.h"
 
@@ -8,23 +8,22 @@ private:
 	vector <médico> listaMédicos;
 	vector <cita> listaCitas;
 public:
-	void registrarPaciente(paciente paciente) {
+	void registrarPaciente (paciente paciente) {
 		listaPacientes.push_back(paciente);
 	};
 	void listadoPacientes() {
-		cout << "Lista de pacientes:\n";
 		for (auto& paciente : listaPacientes) {
-			paciente.mostrarDatos();
+			paciente.DatosPaciente();
 		}
 	}
-	void registrarMédico(int id, string n, string tipo, bool disponible) {
-		listaMédicos.push_back(médico(id, n, tipo, disponible));
-		cout << "Médico registrado.\n";
+	void registrarMédico(médico medico) {
+		listaMédicos.push_back(medico);
 	}
+
 	void listadoMédicos() {
 		cout << "Lista de médicos:\n";
 		for (auto& médico : listaMédicos) {
-			médico.mostrarDatos();
+			médico.datosMédico();
 		}
 	}
 	void añadirCita(const string& archivoPaciente) {
