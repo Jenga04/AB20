@@ -12,21 +12,6 @@
 
 using namespace std;
 
-void añadirCita(const string& archivoPaciente) {
-	string nombre;
-	int idPaciente;
-	string médico;
-	int idMédico;
-	cout << "Nombre del paciente: ";
-	cin.ignore();
-	getline(cin, nombre);
-	cout << "Número de identificación: ";
-	cin >> idPaciente;
-	cout << "Nombre del médico: ";
-	cin.ignore();
-	getline(cin, médico);
-
-}
 void mostrarMenú() {
 	cout << "\n Menú";
 	cout << "1: Pacientes";
