@@ -21,7 +21,7 @@ public:
 	int getIdPaciente() {
 		return idPaciente;
 	}
-	int getIDMédico(){
+	int getIDMedico(){
 		return idMedico;
 		}
 	string getFechaHora() { 
