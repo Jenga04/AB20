@@ -1,4 +1,4 @@
-class cita {
+/*class cita {
 private:
 	int idCita;
 	string fechaHora;

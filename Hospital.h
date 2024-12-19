@@ -1,4 +1,4 @@
-#include "Paciente.h"
+/*#include "Paciente.h"
 #include "Médico.h"
 #include "Cita.h"
 

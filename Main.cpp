@@ -5,23 +5,24 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include "Paciente.h"
+/* #include "Paciente.h"
 #include "Médico.h"
 #include "Cita.h"
-#include "Hospital.h"
+#include "Hospital.h"*/
 
 using namespace std;
 
 void mostrarMenú() {
-	cout << "\n Menú";
-	cout << "1: Pacientes";
-	cout << "2: Médicos";
-	cout << "3: Citas";
-	cout << "0: Salir";
+	cout << "Menú \n";
+	cout << "1: Pacientes \n";
+	cout << "2: Médicos \n";
+	cout << "3: Citas \n";
+	cout << "4: Reporte \n";
+	cout << "5: Respaldo de datos \n";
+	cout << "0: Salir \n";
 	cout << "Seleccione una opción: ";
 }
 int main() {
-	hospital Hospital;
 	SetConsoleOutputCP(1252);
 	int opcion;
 
@@ -30,13 +31,22 @@ int main() {
 		cin >> opcion;
 
 		switch (opcion) {
-		case 1: {
-			int opcionPaciente;
-			switch (opcionPaciente) {
-			case 1:
-				Hospital.listadoPacientes();
-				break;
-			case 2: {
-				int id;
-				string nombre;
-				cout 
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 0:
+			break;
+		default:
+			cout << "Elija una opción válida. \n\n";
+			break;
+		}
+	} while (opcion != 0);
+	return 0;
+}
