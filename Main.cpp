@@ -5,7 +5,7 @@
 #include <vector>
 #include <fstream>
 #include "Paciente.h"
-#include "Médico.h"
+#include "Medico.h"
 #include "Cita.h"
 #include "Hospital.h"
 #include "Windows.h"
@@ -89,7 +89,7 @@ void menuMedicos(hospital& Medico) {
 		cout << "Está disponible? (1: Si, 0: no)";
 		cin >> disponibilidad;
 		cout << "Médico registrado correctamente.\n";
-		Medico.registrarMédico(medico(id, nombre, tipo, disponibilidad));
+		Medico.registrarMedico(medico(id, nombre, tipo, disponibilidad));
 		break;
 		}
 	case 0:

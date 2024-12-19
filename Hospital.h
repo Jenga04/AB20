@@ -1,5 +1,5 @@
 #include "Paciente.h"
-#include "Médico.h"
+#include "Medico.h"
 #include "Cita.h"
 
 class hospital {
@@ -23,8 +23,8 @@ public:
 			médico.datosMédico();
 		}
 	}
-	void registrarMédico(medico medico) {
-		listaMedicos.push_back(medico);
+	void registrarMedico(medico Medico) {
+		listaMedicos.push_back(Medico);
 	}
 	void listadoCitas() {
 		cout << "Lista de citas: \n";

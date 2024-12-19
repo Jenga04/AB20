@@ -12,7 +12,7 @@ endif()
 project ("AB20")
 
 # Agregue un origen al ejecutable de este proyecto.
-add_executable (AB20 "Main.cpp" "Paciente.h" "Médico.h" "Cita.h" "Hospital.h")
+add_executable (AB20 "Main.cpp" "Paciente.h" "Medico.h" "Cita.h" "Hospital.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AB20 PROPERTY CXX_STANDARD 20)
