@@ -25,6 +25,7 @@ public:
 	string getFechaIngreso() {
 		return fechaIngreso;
 	}
+
 	void setNombre(const string& nuevoNombre) {
 		nombre = nuevoNombre;
 	}

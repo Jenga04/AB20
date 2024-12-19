@@ -29,8 +29,17 @@ public:
 	bool est·Disponible() {
 		return disponibilidad;
 	}
-
 	void cambiarDisponibilidad(bool estado) {
 		disponibilidad = estado;
+	}
+
+	void setNombre(const string& nuevoNombre) {
+		nombre = nuevoNombre;
+	}
+	void setEspecialidad(const string& nuevaEspecialidad) {
+		especialidad = nuevaEspecialidad;
+	}
+	void setDisponibilidad(bool nuevaDisponibilidad) {
+		disponibilidad = nuevaDisponibilidad;
 	}
 };
