@@ -20,7 +20,7 @@ public:
 	void listadoMedicos() {
 		cout << "Lista de médicos:\n";
 		for (auto& médico : listaMedicos) {
-			médico.datosMédico();
+			médico.datosMedico();
 		}
 	}
 	void registrarMedico(medico Medico) {

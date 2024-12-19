@@ -13,7 +13,7 @@ public:
 		especialidad(tipo),
 		disponibilidad(true) {}
 
-	void datosMédico() {
+	void datosMedico() {
 		cout << "ID del medico: " << idMedico << ".\nNombre: " << nombre << ".\nEspecialidad: " << especialidad << ".\nDisponibile:  " << (disponibilidad ? "Si" : "No") << endl;
 	}
 
