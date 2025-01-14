@@ -1,13 +1,16 @@
 #include "Hospital.h"
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 
-hospital::hospital(const string& archivoPacientes, const string& archivoMedicos, const string& archivoCitas) :
-	archivoPacientes(archivoP), archivoMedicos(archivoM), archivoCitas(archivoC) {}
+hospital::hospital(const string& archivoPacientes, const string& archivoMedicos, const string& archivoCitas):
+	archivoP (archivoPacientes),
+	archivoM (archivoMedicos), 
+	archivoC (archivoCitas) {}
 
-	void hospital::listadoPacientes() const {
+	void hospital::listaPacientes() const {
 	cout << "Lista de pacientes:\n";
 	for (auto& paciente : p) {
 		paciente.DatosPaciente();
@@ -15,27 +18,31 @@ hospital::hospital(const string& archivoPacientes, const string& archivoMedicos,
 }
 	void hospital::registrarPaciente(int id, const string& n, const string& fecha) {
 		p.push_back(paciente(id, n, fecha));
-		guardarPaciente();
+		guardarPaciente;
 		cout << "Paciente registrado correctamente. \n";
 	}
 
-void listadoMedicos() {
-	cout << "Lista de médicos:\n";
-	for (auto& medico : listaMedicos) {
+void hospital::listaMedicos() const {
+	cout << "Lista de medicos:\n";
+	for (auto& medico : m) {
 		medico.datosMedico();
 	}
 }
-void registrarMedico(medico Medico) {
-	listaMedicos.push_back(Medico);
+void hospital::registrarMedico(int id, string n, string tipo, bool disponible) {
+	m.push_back(medico(id, n, tipo, disponible));
+	guardarMedico;
+	cout << "Medico registrado correctamente. \n";
 }
-void listadoCitas() {
+void hospital::listaCitas() const{
 	cout << "Lista de citas: \n";
-	for (auto& cita : listaCitas) {
+	for (auto& cita : c) {
 		cita.datosCitas();
 	}
 }
-void añadirCita(cita Cita) {
-	listaCitas.push_back(Cita);
+void hospital::registrarCita(int id, string fecha, int idp, int idm, int urgente){
+	c.push_back(cita(id, fecha, idp, idm, urgente));
+	guardarCita;
+	cout << "Cita registrada correctamente.\n";
 }
 
 //Guardar datos en los archivos
@@ -50,13 +57,13 @@ void hospital::guardarPaciente(){
 void hospital::guardarMedico(){
 	ofstream archivo(archivoMedicos);
 	for (const auto& medico : m) {
-		archivo << medico.getId() << "," << medico.getNombre() << "," << medico.getEspecialidad() << "," << (medico.isDisponible() ? "1" : "0") << "\n";
+		archivo << medico.getId() << "," << medico.getNombre() << "," << medico.getEspecialidad() << "," << (medico.estaDisponible() ? "1" : "0") << "\n";
 	}
 }
 
-void hospital::guardarCitas(){
+void hospital::guardarCita(){
 	ofstream archivo(archivoCitas);
 	for (const auto& cita : c) {
-		archivo << cita.getId() << "," << cita.getFechaHora() << "," << cita.getIdPaciente() << "," << cita.getIdMedico() << ","<< cita.getUrgencia() << "\n";
+		archivo << cita.getIdCita() << "," << cita.getFechaHora() << "," << cita.getIdPaciente() << "," << cita.getIdMedico() << ","<< cita.getUrgencia() << "\n";
 	}
 }

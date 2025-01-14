@@ -1,6 +1,4 @@
-﻿// AB20.cpp: define el punto de entrada de la aplicación.
-//
-#include <string>
+﻿#include <string>
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -16,49 +14,38 @@ void mostrarMenu() {
 	cout << "1: Pacientes \n\n";
 	cout << "2: Medicos \n";
 	cout << "3: Citas \n";
-	cout << "4: Reporte \n";
 	cout << "5: Respaldo de datos \n";
 	cout << "0: Salir \n";
 	cout << "Seleccione una opcion: ";
 }
 
 void menuPacientes(hospital& hospital) {
-	cout << "Pacientes \n\n";
-	cout << "1: Lista de pacientes \n";
-	cout << "2: Registrar paciente \n";
-	cout << "3: Dar de baja un paciente \n";
-	cout << "4: Modificar paciente \n";
-	cout << "5: Buscar paciente \n";
-	cout << "0: Volver al menu principal";
-	cout << "¿Que desea realizar?";
 	int opcionPacientes;
+	do{
+		cout << "Pacientes \n\n";
+		cout << "1: Lista de pacientes \n";
+		cout << "2: Registrar paciente \n";
+		cout << "3: Eliminar paciente \n";
+		cout << "4: Modificar paciente \n";
+		cout << "5: Buscar paciente \n";
+		cout << "0: Volver al menu principal";
+		cout << "¿Que desea realizar?";
+		cin >> opcionPacientes;
 
-	switch (opcionPacientes) {
-			case 1:
-				paciente.listadoPacientes();
-				break;
-			case 2: {
-				int id;
-				string n, fecha;
-				cout << "Ingrese ID: ";
-				cin >> id;
-				cout << "Ingrese nombre: ";
-				cin.ignore();
-				getline(cin, n);
-				cout << "Ingrese fecha de ingreso (DD/MM/AAAA): ";
-				getline(cin, fecha);
-				hospital.registrarPaciente(paciente(id, n, fecha));
-				cout << "Paciente registrado correctamente.\n";
-				break;
-			}
-			case 0:
-				cout << "Volviendo al menu principal \n";
-			default:
-				cout << "Elija una opcion valida.";
-				break;
-			} while (opcionP != 0);
-}
-
+		switch (opcionPacientes) {
+		case 1: {
+			int id;
+			string nombre, fecha;
+			cout << "ID del paciente: ";
+			cin >> id;
+			cout << "Nombre del paciente: ";
+			cin.ignore();
+			getline(cin, nombre);
+			cout << "Fecha de ingreso (DD/MM/AAAA): ";
+			getline(cin, fecha);
+			hospital.registrarPaciente(id, nombre, fecha);
+			break;
+		}
 void menuMedicos(hospital& Medico) {
 	cout << "Medicos\n";
 	cout << "1: Lista de medicos \n";
