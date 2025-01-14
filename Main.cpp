@@ -22,7 +22,7 @@ void mostrarMenu() {
 	cout << "Seleccione una opcion: ";
 }
 
-void menuPacientes(hospital& Paciente) {
+void menuPacientes(hospital& hospital) {
 	cout << "Pacientes \n\n";
 	cout << "1: Lista de pacientes \n";
 	cout << "2: Registrar paciente \n";
@@ -31,11 +31,11 @@ void menuPacientes(hospital& Paciente) {
 	cout << "5: Buscar paciente \n";
 	cout << "0: Volver al menu principal";
 	cout << "¿Que desea realizar?";
-	int opcionP;
+	int opcionPacientes;
 
-	switch (opcionP) {
+	switch (opcionPacientes) {
 			case 1:
-				Paciente.listadoPacientes();
+				paciente.listadoPacientes();
 				break;
 			case 2: {
 				int id;
@@ -47,7 +47,7 @@ void menuPacientes(hospital& Paciente) {
 				getline(cin, n);
 				cout << "Ingrese fecha de ingreso (DD/MM/AAAA): ";
 				getline(cin, fecha);
-				Paciente.registrarPaciente(paciente(id, n, fecha));
+				hospital.registrarPaciente(paciente(id, n, fecha));
 				cout << "Paciente registrado correctamente.\n";
 				break;
 			}
