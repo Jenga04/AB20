@@ -7,32 +7,31 @@ private:
 	vector <paciente> listaPacientes;
 	vector <medico> listaMedicos;
 	vector <cita> listaCitas;
+
 public:
-	void listadoPacientes() {
-		cout << "Lista de pacientes:\n";
-		for (auto& paciente : listaPacientes) {
-			paciente.DatosPaciente();
-		}
-	}
-	void registrarPaciente(paciente Paciente) {
-		listaPacientes.push_back(Paciente);
-	};
-	void listadoMedicos() {
-		cout << "Lista de médicos:\n";
-		for (auto& medico : listaMedicos) {
-			medico.datosMedico();
-		}
-	}
-	void registrarMedico(medico Medico) {
-		listaMedicos.push_back(Medico);
-	}
-	void listadoCitas() {
-		cout << "Lista de citas: \n";
-		for (auto& cita : listaCitas) {
-			cita.datosCitas();
-		}
-	}
-	void añadirCita(cita Cita) {
-		listaCitas.push_back(Cita);
-	}
+	hospital();
+
+	//Pacientes
+	void altaPaciente(int id, string n, string fecha);
+	void bajaPaciente(int id);
+	void modificarPaciente(int id, string nuevoNombre);
+	void listadoPacientes() const;
+
+	//Medicos
+	void altaMedico(int id, string n, string tipo);
+	void bajaMedico(int id);
+	void modificarMedico(int id, string nuevoNombre, string nuevaEspcialidad);
+	void listaMedicosEspecialidad(const string& especialidad);
+	void listaMedicosDisponibles() const;
+
+	//Citas
+	void asignarCita(int id, string fecha, int idp, int idm, int urgente);
+	void cancelarCita(int id);
+	void modificarCita(int id, string nuevaFechaHora);
+	void listaCitasUrgencia() const;
+	void listaCitasFecha() const;
+
+	//Archivos
+	void guardarDatos(const string& archivoPacientes, const string& archivoMedicos, const string& archivoCitas);
+	void cargarDatos(const string& archivoPacientes, const string& archivoMedicos, const string& archivoCitas);
 };

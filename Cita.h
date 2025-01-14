@@ -16,5 +16,9 @@ public:
 	int getIdPaciente();
 	int getIDMedico();
 	int getUrgencia();
+
+	void setFechaHora(const string& nuevaFechaHora) {
+		fechaHora = nuevaFechaHora;
+	}
 	void datosCitas();
 };
