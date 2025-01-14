@@ -1,4 +1,6 @@
-#include <string>
+#include <iostream>
+using namespace std;
+
 class medico {
 private:
 	int idMedico;
@@ -7,31 +9,13 @@ private:
 	bool disponibilidad;
 
 public:
-	medico(int id, string n, string tipo, bool disponible) :
-		idMedico(id),
-		nombre(n),
-		especialidad(tipo),
-		disponibilidad(true) {}
-
-	void datosMedico() {
-		cout << "ID del medico: " << idMedico << ".\nNombre: " << nombre << ".\nEspecialidad: " << especialidad << ".\nDisponibile:  " << (disponibilidad ? "Si" : "No") << endl;
-	}
-
-	int getID() {
-		return idMedico;
-	}
-	string getNombre() {
-		return nombre;
-	}
-	string getEspecialidad() {
-		return especialidad;
-	}
-	bool estaDisponible() {
-		return disponibilidad;
-	}
-	void cambiarDisponibilidad(bool estado) {
-		disponibilidad = estado;
-	}
+	medico(int id, string n, string tipo, bool disponible);
+	
+	int getId() const;
+	string getNombre();
+	string getEspecialidad();
+	bool estaDisponible();
+	void cambiarDisponibilidad(bool estado);
 
 	void setNombre(const string& nuevoNombre) {
 		nombre = nuevoNombre;
@@ -42,4 +26,5 @@ public:
 	void setDisponibilidad(bool nuevaDisponibilidad) {
 		disponibilidad = nuevaDisponibilidad;
 	}
+	void datosMedico() const;
 };

@@ -1,5 +1,6 @@
-﻿// AB20.h: archivo de inclusión para archivos de inclusión estándar del sistema,
-// o archivos de inclusión específicos de un proyecto.
+﻿#include <iostream>
+using namespace std;
+
 class paciente {
 private:
 	int idPaciente;

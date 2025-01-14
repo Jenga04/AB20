@@ -8,7 +8,6 @@
 #include "Medico.h"
 #include "Cita.h"
 #include "Hospital.h"
-#include "Windows.h"
 
 using namespace std;
 
