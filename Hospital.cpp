@@ -6,21 +6,18 @@ using namespace std;
 
 
 hospital::hospital(const string& archivoPacientes, const string& archivoMedicos, const string& archivoCitas):
-	archivoP (archivoPacientes),
-	archivoM (archivoMedicos), 
-	archivoC (archivoCitas) {}
 
-	void hospital::listaPacientes() const {
+void hospital::listaPacientes() const {
 	cout << "Lista de pacientes:\n";
 	for (auto& paciente : p) {
 		paciente.DatosPaciente();
 	}
 }
-	void hospital::registrarPaciente(int id, const string& n, const string& fecha) {
-		p.push_back(paciente(id, n, fecha));
-		guardarPaciente;
-		cout << "Paciente registrado correctamente. \n";
-	}
+void hospital::registrarPaciente(int id, const string& n, const string& fecha) {
+	p.push_back(paciente(id, n, fecha));
+	guardarPaciente;
+	cout << "Paciente registrado correctamente. \n";
+}
 
 void hospital::listaMedicos() const {
 	cout << "Lista de medicos:\n";
