@@ -49,6 +49,13 @@ void menuPacientes(hospital& hospital) {
 			hospital.registrarPaciente(id, n, fecha);
 			break;
 		}
+		case 3: {
+			int idPaciente;
+			cout << "Ingrese el ID del paciente a eliminar";
+			cin >> idPaciente;
+			hospital.eliminarPaciente(idPaciente);
+			break;
+		}
 		case 0:
 			cout << "Volviendo al menu principal \n";
 		default:
@@ -62,43 +69,50 @@ void menuPacientes(hospital& hospital) {
 void menuMedicos(hospital& hospital) {
 	int opcionMedicos;
 	do {
-	cout << "Medicos\n";
-	cout << "1: Lista de medicos \n";
-	cout << "2: Registrar medico \n";
-	cout << "3: Dar de baja un medico \n";
-	cout << "4: Modificar medico \n";
-	cout << "5: Buscar medico \n";
-	cout << "0: Volver al menu principal";
-	cout << "¿Que desea realizar?";
+		cout << "Medicos\n";
+		cout << "1: Lista de medicos \n";
+		cout << "2: Registrar medico \n";
+		cout << "3: Eliminar medico \n";
+		cout << "4: Modificar medico \n";
+		cout << "5: Buscar medico \n";
+		cout << "0: Volver al menu principal";
+		cout << "¿Que desea realizar?";
 
 
-	switch (opcionMedicos) {
-	case 1:
-		hospital.listadoMedicos();
-		break;
-	case 2: {
-		int id;
-		string n, tipo;
-		bool disponible;
-		cout << "Ingrese ID: ";
-		cin >> id;
-		cout << "Ingrese nombre: ";
-		cin.ignore();
-		getline(cin, n);
-		cout << "Ingrese su especialidad: ";
-		getline(cin, tipo);
-		cout << "Esta disponible? (1: Si, 0: no)";
-		cin >> disponible;
-		cout << "Medico registrado correctamente.\n";
-		hospital.registrarMedico(id, n, tipo, disponible);
-		break;
-	}
-	case 0:
-		cout << "Volviendo al menu principal \n";
-	default:
-		cout << "Elija una opcion valida.";
-		break;
-	}
+		switch (opcionMedicos) {
+		case 1:
+			hospital.listadoMedicos();
+			break;
+		case 2: {
+			int id;
+			string n, tipo;
+			bool disponible;
+			cout << "Ingrese ID: ";
+			cin >> id;
+			cout << "Ingrese nombre: ";
+			cin.ignore();
+			getline(cin, n);
+			cout << "Ingrese su especialidad: ";
+			getline(cin, tipo);
+			cout << "Esta disponible? (1: Si, 0: no)";
+			cin >> disponible;
+			cout << "Medico registrado correctamente.\n";
+			hospital.registrarMedico(id, n, tipo, disponible);
+			break;
+		}
+		case 3: {
+			int idMedico;
+			cout << "Ingrese el ID del medico a eliminar";
+			cin >> idMedico;
+			hospital.eliminarMedico(idMedico);
+			break;
+		}
+		case 0:
+			cout << "Volviendo al menu principal \n";
+		default:
+			cout << "Elija una opcion valida.";
+			break;
+		}
 	} while (opcionMedicos != 0);
 }
 
@@ -133,6 +147,13 @@ void menuCitas(hospital& hospital) {
 			cout << "Urgencia  (1 a 5): ";
 			cin >> urgente;
 			hospital.registrarCita(id, fecha, idp, idm, urgente);
+			break;
+		}
+		case 3: {
+			int idCita;
+			cout << "Ingrese el ID de la cita a cancelar";
+			cin >> idCita;
+			hospital.cancelarCita(idCita);
 			break;
 		}
 		case 0:
