@@ -4,28 +4,28 @@ using namespace std;
 
 paciente::paciente (int id, string n, string fecha):
 	idPaciente(id),
-	nombre(n),
+	nombrePaciente(n),
 	fechaIngreso(fecha),
 	historial(""){}
 
-int paciente::getId() const {
+int paciente::getIdPaciente() const {
 	return idPaciente;
 }
-string paciente::getNombre() {
-	return nombre;
+string paciente::getNombrePaciente() {
+	return nombrePaciente;
 }
 string paciente::getFechaIngreso() {
 	return fechaIngreso;
 }
-void paciente::setNombre(const string& nuevoNombre) {
-	nombre = nuevoNombre;
+void paciente::setNombrePaciente(string nuevoNombrePaciente) {
+	nombrePaciente = nuevoNombrePaciente;
 }
-void paciente::setFechaIngreso(const string& nuevaFecha) {
+void paciente::setFechaIngreso(string nuevaFecha) {
 	fechaIngreso = nuevaFecha;
 }
-void paciente::actualizarHistorial(const string& nuevoHistorial) {
+void paciente::actualizarHistorial(string nuevoHistorial) {
 	historial = nuevoHistorial;
 }
 void paciente::DatosPaciente() const{
-	cout << "ID del paciente: " << idPaciente << ".\nNombre: " << nombre << ".\nFecha de ingreso: " << fechaIngreso;
+	cout << "ID del paciente: " << idPaciente << ".\nNombre: " << nombrePaciente << ".\nFecha de ingreso: " << fechaIngreso;
 }

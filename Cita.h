@@ -9,16 +9,14 @@ private:
 	int idMedico;
 	int urgencia;
 public:
-	cita(int id, string fecha, int idp, int idm, int urgente);
+	cita(int id, string fechaCita, int idp, int idm, int urgente);
 
-	int getIdCita();
-	string getFechaHora();
-	int getIdPaciente();
-	int getIDMedico();
-	int getUrgencia();
+	int getIdCita() const;
+	string getFechaHora() const;
+	int getIdPaciente() const;
+	int getIdMedico() const;
+	int getUrgencia() const;
 
-	void setFechaHora(const string& nuevaFechaHora) {
-		fechaHora = nuevaFechaHora;
-	}
-	void datosCitas();
+	void setFechaHora(string nuevaFechaHora);
+	void datosCitas() const;
 };

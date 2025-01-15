@@ -4,27 +4,21 @@ using namespace std;
 class medico {
 private:
 	int idMedico;
-	string nombre;
+	string nombreMedico;
 	string especialidad;
 	bool disponibilidad;
 
 public:
 	medico(int id, string n, string tipo, bool disponible);
 	
-	int getId() const;
-	string getNombre();
-	string getEspecialidad();
-	bool estaDisponible();
+	int getIdMedico() const;
+	string getNombreMedico() const;
+	string getEspecialidad() const;
+	bool estaDisponible() const;
 	void cambiarDisponibilidad(bool estado);
 
-	void setNombre(const string& nuevoNombre) {
-		nombre = nuevoNombre;
-	}
-	void setEspecialidad(const string& nuevaEspecialidad) {
-		especialidad = nuevaEspecialidad;
-	}
-	void setDisponibilidad(bool nuevaDisponibilidad) {
-		disponibilidad = nuevaDisponibilidad;
-	}
+	void setNombreMedico(string nuevoNombreMEdico);
+	void setEspecialidad(string nuevaEspecialidad);
+	void setDisponibilidad(bool nuevaDisponibilidad);
 	void datosMedico() const;
 };

@@ -27,7 +27,7 @@ hospital(const string& archivoPacientes, const string& archivoMedicos, const str
 
 //Medicos
 	void listaMedicos() const;
-	void registrarMedico(int id, const string& n, string tipo, bool disponible);
+	void registrarMedico(int id, const string& n,const string& tipo, bool disponible);
 	void eliminarMedico(int id);
 	void modificarMedico(int id, string nuevoNombre, string nuevaEspcialidad);
 	
