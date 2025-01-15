@@ -25,13 +25,13 @@ void hospital::registrarPaciente(
 	const string& n, 
 	const string& fecha) {
 	listaPacientes.push_back(paciente(id, n, fecha));
-	guardarPaciente;
+	guardarPaciente();
 	cout << "Paciente registrado correctamente. \n";
 }
 void hospital::eliminarPaciente(int idPaciente) {
 	auto idp = find_if(listaPacientes.begin(), listaPacientes.end(),
-		[idPaciente](const paciente& listaPacientes) {
-			return listaPacientes.getIdPaciente() == idPaciente;
+		[idPaciente](const paciente& listadoPacientes) {
+			return listadoPacientes.getIdPaciente() == idPaciente;
 		});
 	if (idp != listaPacientes.end()) {
 		listaPacientes.erase(idp);
@@ -116,7 +116,7 @@ void hospital::guardarMedico(){
 	}
 }
 
-void hospital::guardarCita(){
+void hospital::guardarCita() {
 	ofstream archivo(archivoCitas);
 	for (const auto& cita : listaCitas) {
 		archivo << cita.getIdCita() << "," << cita.getFechaHora() << "," << cita.getIdPaciente() << "," << cita.getIdMedico() << ","<< cita.getUrgencia() << "\n";

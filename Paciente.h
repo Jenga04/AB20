@@ -1,4 +1,7 @@
-﻿#include <iostream>
+﻿#ifndef PACIENTE_H
+#define PACIENTE_H
+
+#include <iostream>
 using namespace std;
 
 class paciente {
@@ -20,3 +23,5 @@ public:
 	void actualizarHistorial(string nuevoHistorial);
 	void DatosPaciente() const;
 };
+
+#endif // !Paciente.h

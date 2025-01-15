@@ -1,3 +1,6 @@
+#ifndef CITA_H
+#define CITA_H
+
 #include <iostream>
 using namespace std;
 
@@ -20,3 +23,5 @@ public:
 	void setFechaHora(string nuevaFechaHora);
 	void datosCitas() const;
 };
+
+#endif

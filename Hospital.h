@@ -20,27 +20,27 @@ hospital(const string& archivoPacientes, const string& archivoMedicos, const str
 	void listadoPacientes() const;
 	void registrarPaciente(int idPaciente, const string& n, const string& fecha);
 	void eliminarPaciente(int idPaciente);
-	void modificarPaciente(int idPaciente, string nuevoNombre);
+	//void modificarPaciente(int idPaciente, string nuevoNombre);
 	
 
 	
 
 //Medicos
 	void listadoMedicos() const;
-	void listaMedicosEspecialidad(const string& especialidad);
-	void listaMedicosDisponibles() const;
+	//void listaMedicosEspecialidad(const string& especialidad);
+	//void listaMedicosDisponibles() const;
 	void registrarMedico(int idMedico, const string& n,const string& tipo, bool disponible);
 	void eliminarMedico(int idMedico);
-	void modificarMedico(int idMedico, string nuevoNombre, string nuevaEspcialidad);
+	//void modificarMedico(int idMedico, string nuevoNombre, string nuevaEspcialidad);
 	
 	
 //Citas
 	void listadoCitas() const;
-	void listaCitasUrgencia() const;
-	void listaCitasFecha() const;
+	//void listaCitasUrgencia() const;
+	//void listaCitasFecha() const;
 	void registrarCita(int idCita, const string& fecha, int idp, int idm, int urgente);
 	void cancelarCita(int idCita);
-	void modificarCita(int idCita, string nuevaFechaHora);
+	//void modificarCita(int idCita, string nuevaFechaHora);
 	
 	
 
@@ -48,7 +48,8 @@ hospital(const string& archivoPacientes, const string& archivoMedicos, const str
 	void guardarPaciente();
 	void guardarMedico();
 	void guardarCita();
+	
 	void cargarPaciente();
-	void cargarMedico();
-	void caragrCita();
+	//void cargarMedico();
+	//void caragrCita();
 };

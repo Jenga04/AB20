@@ -1,3 +1,6 @@
+#ifndef MEDICO_H
+#define MEDICO_H
+
 #include <iostream>
 using namespace std;
 
@@ -22,3 +25,5 @@ public:
 	void setDisponibilidad(bool nuevaDisponibilidad);
 	void datosMedico() const;
 };
+
+#endif
