@@ -12,7 +12,10 @@ private:
 	string historial;
 
 public:
-	paciente(int id, string n, string fecha);
+	paciente(
+		int id,
+		string n,
+		string fecha);
 
 	int getIdPaciente() const;
 	string getNombrePaciente();

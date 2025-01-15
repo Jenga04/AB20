@@ -53,7 +53,7 @@ void hospital::registrarMedico(
 	const string& tipo, 
 	bool disponible) {
 	listaMedicos.push_back(medico(id, n, tipo, disponible));
-	guardarMedico;
+	guardarMedico();
 	cout << "Medico registrado correctamente. \n";
 }
 void hospital::eliminarMedico(int idMedico) {
@@ -79,11 +79,12 @@ void hospital::listadoCitas() const{
 void hospital::registrarCita(
 	int id, 
 	const string& fecha, 
+	const string& hora,
 	int idp, 
 	int idm, 
 	int urgente) {
-	listaCitas.push_back(cita(id, fecha, idp, idm, urgente));
-	guardarCita;
+	listaCitas.push_back(cita(id, fecha, hora, idp, idm, urgente));
+	guardarCita();
 	cout << "Cita registrada correctamente.\n";
 }
 void hospital::cancelarCita(int idCita) {
@@ -119,6 +120,6 @@ void hospital::guardarMedico(){
 void hospital::guardarCita() {
 	ofstream archivo(archivoCitas);
 	for (const auto& cita : listaCitas) {
-		archivo << cita.getIdCita() << "," << cita.getFechaHora() << "," << cita.getIdPaciente() << "," << cita.getIdMedico() << ","<< cita.getUrgencia() << "\n";
+		archivo << cita.getIdCita() << ", " << cita.getFechaCita() << ", " << cita.getHoraCita()<< ", " << cita.getIdPaciente() << ", " << cita.getIdMedico() << ", " << cita.getUrgencia() << "\n";
 	}
 }

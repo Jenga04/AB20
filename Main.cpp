@@ -14,7 +14,7 @@ void mostrarMenu() {
 	cout << "1: Pacientes \n\n";
 	cout << "2: Medicos \n";
 	cout << "3: Citas \n";
-	cout << "5: Respaldo de datos \n";
+	cout << "4: Respaldo de datos \n";
 	cout << "0: Salir \n";
 	cout << "Seleccione una opcion: ";
 }
@@ -135,7 +135,7 @@ void menuCitas(hospital& hospital) {
 			break;
 		case 2: {
 			int id, idp, idm, urgente;
-			string fecha;
+			string fechaCita, horaCita;
 			cout << "ID de la cita: ";
 			cin >> id;
 			cout << "ID del paciente: ";
@@ -143,10 +143,12 @@ void menuCitas(hospital& hospital) {
 			cout << "ID del medico: ";
 			cin >> idm;
 			cout << "Fecha (DD/MM/YYYY)";
-			cin >> fecha;
+			cin >> fechaCita;
+			cout << "Hora: ";
+			cin >> horaCita;
 			cout << "Urgencia  (1 a 5): ";
 			cin >> urgente;
-			hospital.registrarCita(id, fecha, idp, idm, urgente);
+			hospital.registrarCita(id, fechaCita, horaCita, idp, idm, urgente);
 			break;
 		}
 		case 3: {

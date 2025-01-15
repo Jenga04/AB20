@@ -2,9 +2,10 @@
 #include <iostream>
 using namespace std;
 
-cita::cita(int id, string fechaCita, int idp, int idm, int urgente) :
+cita::cita(int id, const string& fecha, const string& hora, int idp, int idm, int urgente) :
 	idCita(id),
-	fechaHora(fechaCita),
+	fechaCita(fecha),
+	horaCita(hora),
 	idPaciente(idp),
 	idMedico(idm) {
 	if (urgente < 1) {
@@ -21,8 +22,11 @@ cita::cita(int id, string fechaCita, int idp, int idm, int urgente) :
 int cita::getIdCita() const {
 	return idCita;
 }
-string cita::getFechaHora() const {
-	return fechaHora;
+string cita::getFechaCita() const {
+	return fechaCita;
+}
+string cita::getHoraCita() const {
+	return horaCita;
 }
 int cita::getIdPaciente() const{
 	return idPaciente;
@@ -33,10 +37,13 @@ int cita::getIdMedico() const{
 int cita::getUrgencia() const{
 	return urgencia;
 }
-void cita::setFechaHora(string nuevaFechaHora) {
-	fechaHora = nuevaFechaHora;
+void cita::setFechaCita(string nuevaFecha) {
+	fechaCita = nuevaFecha;
+}
+void cita::setHoraCita(string nuevaHora) {
+	horaCita = nuevaHora;
 }
 void cita::datosCitas() const{
-	cout << "Id de la cita: " << idCita << "\nFecha y hora: " << fechaHora << "\nID del paciente: " << idPaciente << "\n ID del medico: " << idMedico << "\nNivel de urgencia: " << urgencia;
+	cout << "Id de la cita: " << idCita << "\nFecha: " << fechaCita << "\nHora de la cita: " << horaCita << "\nID del paciente : " << idPaciente << "\n ID del medico : " << idMedico << "\nNivel de urgencia : " << urgencia;
 }
 

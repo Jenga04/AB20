@@ -2,10 +2,10 @@
 #include <iostream>
 using namespace std;
 
-paciente::paciente (int id, string n, string fecha):
+paciente::paciente (int id, string n, string fechaCita):
 	idPaciente(id),
 	nombrePaciente(n),
-	fechaIngreso(fecha),
+	fechaIngreso(fechaCita),
 	historial(""){}
 
 int paciente::getIdPaciente() const {

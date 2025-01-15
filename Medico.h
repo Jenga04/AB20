@@ -12,7 +12,10 @@ private:
 	bool disponibilidad;
 
 public:
-	medico(int id, string n, string tipo, bool disponible);
+	medico(int id,
+		string n,
+		string tipo, 
+		bool disponible);
 	
 	int getIdMedico() const;
 	string getNombreMedico() const;

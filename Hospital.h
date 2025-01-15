@@ -14,7 +14,10 @@ private:
 
 public:
 	
-hospital(const string& archivoPacientes, const string& archivoMedicos, const string& archivoCitas);
+hospital(
+	const string& archivoPacientes,
+	const string& archivoMedicos,
+	const string& archivoCitas);
 
 	//Pacientes
 	void listadoPacientes() const;
@@ -38,7 +41,9 @@ hospital(const string& archivoPacientes, const string& archivoMedicos, const str
 	void listadoCitas() const;
 	//void listaCitasUrgencia() const;
 	//void listaCitasFecha() const;
-	void registrarCita(int idCita, const string& fecha, int idp, int idm, int urgente);
+	void registrarCita(int idCita, const string& fecha, const string& hora, int idp, int idm, int urgente);
+	bool validarFecha(const string& fecha);
+	bool validarHora(const string& hora);
 	void cancelarCita(int idCita);
 	//void modificarCita(int idCita, string nuevaFechaHora);
 	
@@ -49,7 +54,7 @@ hospital(const string& archivoPacientes, const string& archivoMedicos, const str
 	void guardarMedico();
 	void guardarCita();
 	
-	void cargarPaciente();
+	//void cargarPaciente();
 	//void cargarMedico();
 	//void caragrCita();
 };
