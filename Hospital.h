@@ -5,9 +5,9 @@
 
 class hospital {
 private:
-	vector <paciente> p;
-	vector <medico> m;
-	vector <cita> c;
+	vector <paciente> listaPacientes;
+	vector <medico> listaMedicos;
+	vector <cita> listaCitas;
 	string archivoPacientes;
 	string archivoMedicos;
 	string archivoCitas;
@@ -17,31 +17,32 @@ public:
 hospital(const string& archivoPacientes, const string& archivoMedicos, const string& archivoCitas);
 
 	//Pacientes
-	void listaPacientes() const;
-	void registrarPaciente(int id, const string& n, const string& fecha);
-	void eliminarPaciente(int id);
-	void modificarPaciente(int id, string nuevoNombre);
+	void listadoPacientes() const;
+	void registrarPaciente(int idPaciente, const string& n, const string& fecha);
+	void eliminarPaciente(int idPaciente);
+	void modificarPaciente(int idPaciente, string nuevoNombre);
 	
 
 	
 
 //Medicos
-	void listaMedicos() const;
-	void registrarMedico(int id, const string& n,const string& tipo, bool disponible);
-	void eliminarMedico(int id);
-	void modificarMedico(int id, string nuevoNombre, string nuevaEspcialidad);
-	
+	void listadoMedicos() const;
 	void listaMedicosEspecialidad(const string& especialidad);
 	void listaMedicosDisponibles() const;
-
-//Citas
-	void listaCitas() const;
-	void registrarCita(int id, const string& fecha, int idp, int idm, int urgente);
-	void cancelarCita(int id);
-	void modificarCita(int id, string nuevaFechaHora);
+	void registrarMedico(int idMedico, const string& n,const string& tipo, bool disponible);
+	void eliminarMedico(int idMedico);
+	void modificarMedico(int idMedico, string nuevoNombre, string nuevaEspcialidad);
 	
+	
+//Citas
+	void listadoCitas() const;
 	void listaCitasUrgencia() const;
 	void listaCitasFecha() const;
+	void registrarCita(int idCita, const string& fecha, int idp, int idm, int urgente);
+	void cancelarCita(int idCita);
+	void modificarCita(int idCita, string nuevaFechaHora);
+	
+	
 
 //Archivos
 	void guardarPaciente();
