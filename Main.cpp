@@ -2,10 +2,10 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include "Hospital.h"
 #include "Paciente.h"
 #include "Medico.h"
 #include "Cita.h"
-#include "Hospital.h"
 
 using namespace std;
 
@@ -145,7 +145,7 @@ void menuCitas(hospital& hospital) {
 }
 
 int main() {
-	hospital hospital;
+	hospital hospital ("pacientes.csv", "medicos.csv", "citas.csv");
 	int opcion;
 
 	do {
