@@ -34,7 +34,7 @@ void menuPacientes(hospital& hospital) {
 
 		switch (opcionPacientes) {
 		case 1: 
-			hospital.listaPacientes();
+			hospital.listadoPacientes();
 			break;
 		case 2: {
 			int id;
@@ -74,7 +74,7 @@ void menuMedicos(hospital& hospital) {
 
 	switch (opcionMedicos) {
 	case 1:
-		hospital.listaMedicos();
+		hospital.listadoMedicos();
 		break;
 	case 2: {
 		int id;
@@ -117,7 +117,7 @@ void menuCitas(hospital& hospital) {
 
 		switch (opcionCitas) {
 		case 1:
-			hospital.listaCitas();
+			hospital.listadoCitas();
 			break;
 		case 2: {
 			int id, idp, idm, urgente;

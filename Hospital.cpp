@@ -13,6 +13,7 @@ hospital::hospital(const string& archivoPacientes, const string& archivoMedicos,
 	archivoMedicos(archivoMedicos), 
 	archivoCitas(archivoCitas) {}
 
+//Opciones de pacientes
 void hospital::listadoPacientes() const {
 	cout << "Lista de pacientes:\n";
 	for (auto& paciente : listaPacientes) {
@@ -27,7 +28,19 @@ void hospital::registrarPaciente(
 	guardarPaciente;
 	cout << "Paciente registrado correctamente. \n";
 }
-
+void hospital::eliminarPaciente(int idPaciente) {
+	auto idp = find_if(listaPacientes.begin(), listaPacientes.end(),
+		[idPaciente](const paciente& listaPacientes) {
+			return listaPacientes.getIdPaciente() == idPaciente;
+		});
+	if (idp != listaPacientes.end()) {
+		listaPacientes.erase(idp);
+		cout << "Paciente " << idPaciente << "Eliminado correctamente.\n";
+	} else {
+		cout << "Paciente no enccontrado.\n";
+	}
+}
+//Opciones de medicos
 void hospital::listadoMedicos() const{ 
 	cout << "Lista de medicos:\n";
 	for (auto& medico : listaMedicos) {
@@ -43,6 +56,20 @@ void hospital::registrarMedico(
 	guardarMedico;
 	cout << "Medico registrado correctamente. \n";
 }
+void hospital::eliminarMedico(int idMedico) {
+	auto idm = find_if(listaMedicos.begin(), listaMedicos.end(),
+		[idMedico](const medico& listaMedicos) {
+			return listaMedicos.getIdMedico() == idMedico;
+		});
+	if (idm != listaMedicos.end()) {
+		listaMedicos.erase(idm);
+		cout << "Medico " << idMedico << "Eliminado correctamente.\n";
+	}
+	else {
+		cout << "Medico no enccontrado.\n";
+	}
+}
+//Opciones de citas
 void hospital::listadoCitas() const{
 	cout << "Lista de citas: \n";
 	for (auto& cita : listaCitas) {
@@ -58,6 +85,19 @@ void hospital::registrarCita(
 	listaCitas.push_back(cita(id, fecha, idp, idm, urgente));
 	guardarCita;
 	cout << "Cita registrada correctamente.\n";
+}
+void hospital::cancelarCita(int idCita) {
+	auto idc = find_if(listaCitas.begin(), listaCitas.end(),
+		[idCita](const cita& listaCitas) {
+			return listaCitas.getIdCita() == idCita;
+		});
+	if (idc != listaCitas.end()) {
+		listaCitas.erase(idc);
+		cout << "Cita " << idCita << "Eliminada correctamente.\n";
+	}
+	else {
+		cout << "Cita no enccontrada.\n";
+	}
 }
 
 //Guardar datos en los archivos
