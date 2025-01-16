@@ -46,6 +46,20 @@ bool hospital::validarFecha(const string& fecha) {
 	if (!validarFecha(fecha)) {
 		return false;
 	}
+
+	//fecha actual
+	time_t fechaExacta = time(nullptr);
+	tm* diaLocal = localtime(&fechaExacta);
+
+	int diaExacto = diaLocal->tm_mday;
+	int mesExacto = diaLocal->tm_mon+1;
+	int añoExacto = diaLocal->tm_year+1900;
+
+	//Comprobar la fecha actual
+	if (año < añoExacto || (año == añoExacto && mes < mesExacto) || (año == añoExacto && mes == mesExacto && dia < diaExacto)) {
+		return false;
+	}
+	return true;
 }
 
 bool hospital::validarHora(const string& fecha, const string& hora){
