@@ -174,6 +174,16 @@ void hospital::listadoCitas() const {
 		cita.datosCitas();
 	}
 }
+
+void hospital::listaCitasUrgencia() const {
+	cout << "Lista de citas urgentes: \n";
+
+	vector<cita> CitasUrgencia = listaCitas;
+}
+
+void hospital::listaCitasFecha() const {
+	cout << "Lista de citas por fecha: \n";
+}
 void hospital::registrarCita(
 	int id,
 	const string& fecha,
