@@ -179,11 +179,25 @@ void hospital::listadoCitas() const {
 void hospital::listaCitasUrgencia() const {
 	cout << "Lista de citas urgentes: \n";
 
-	vector<cita> CitasUrgencia = listaCitas;
+	vector<cita> citas = listaCitas;
+	sort(citas.begin(), citas.end(), [](const cita& urgenciaMayor, const cita& urganciaMenor) {
+		return urgenciaMayor.getUrgencia() > urganciaMenor.getUrgencia();
+		});
+	for (const auto& cita : citas) {
+		cita.datosCitas();
+	}
 }
 
 void hospital::listaCitasFecha() const {
 	cout << "Lista de citas por fecha: \n";
+
+	vector <cita> citas = listaCitas;
+	sort(citas.begin(), citas.end(), [](const cita& fechaCercana, const cita& fechaLejana) {
+		return fechaCercana.getFechaCita() > fechaLejana.getFechaCita();
+		});
+	for (const auto& cita : citas) {
+		cita.datosCitas();
+	}
 }
 void hospital::registrarCita(
 	int id,
