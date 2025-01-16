@@ -10,8 +10,8 @@
 using namespace std;
 
 void mostrarMenu() {
-	cout << "Menu \n";
-	cout << "1: Pacientes \n\n";
+	cout << "Menu \n\n";
+	cout << "1: Pacientes \n";
 	cout << "2: Medicos \n";
 	cout << "3: Citas \n";
 	cout << "4: Respaldo de datos \n";
@@ -58,6 +58,7 @@ void menuPacientes(hospital& hospital) {
 		}
 		case 0:
 			cout << "Volviendo al menu principal \n";
+			break;
 		default:
 			cout << "Elija una opcion valida.";
 			break;
@@ -69,7 +70,7 @@ void menuPacientes(hospital& hospital) {
 void menuMedicos(hospital& hospital) {
 	int opcionMedicos;
 	do {
-		cout << "Medicos\n";
+		cout << "Medicos\n\n";
 		cout << "1: Lista de medicos \n";
 		cout << "2: Registrar medico \n";
 		cout << "3: Eliminar medico \n";
@@ -77,7 +78,7 @@ void menuMedicos(hospital& hospital) {
 		cout << "5: Buscar medico \n";
 		cout << "0: Volver al menu principal";
 		cout << "¿Que desea realizar?";
-
+		cin >> opcionMedicos;
 
 		switch (opcionMedicos) {
 		case 1:
@@ -109,6 +110,7 @@ void menuMedicos(hospital& hospital) {
 		}
 		case 0:
 			cout << "Volviendo al menu principal \n";
+			break;
 		default:
 			cout << "Elija una opcion valida.";
 			break;
@@ -119,7 +121,7 @@ void menuMedicos(hospital& hospital) {
 void menuCitas(hospital& hospital) {
 	int opcionCitas;
 	do {
-		cout << "Citas\n";
+		cout << "Citas\n\n";
 		cout << "1: Lista de citas \n";
 		cout << "2: Añadir cita \n";
 		cout << "3: Cancelar una cita \n";
@@ -160,6 +162,7 @@ void menuCitas(hospital& hospital) {
 		}
 		case 0:
 			cout << "Volviendo al menu principal \n";
+			break;
 		default:
 			cout << "Elija una opcion valida.";
 			break;
@@ -185,7 +188,13 @@ int main() {
 		case 3:
 			menuCitas(hospital);
 			break;
-		}
+		case 0:
+			cout << "Saliendo";
+			break;
+		default:
+			cout << "Elija una opcion valida";
+			break;
+		}	
 	} while (opcion != 0);
 	return 0;
 }
