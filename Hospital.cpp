@@ -13,7 +13,51 @@ hospital::hospital(const string& archivoPacientes, const string& archivoMedicos,
 	archivoMedicos(archivoMedicos), 
 	archivoCitas(archivoCitas) {}
 
+//Validaciones de fecha y hora
+
+bool hospital::bisiesto(int año) {
+	return (año % 4 == 0 (año % 100 != 0 || año % 400 == 0));
+}
+
+bool hospital::mesValido(int mes) {
+	return mes >= 1 && mes <= 12;
+}
+
+bool hospital::diaValido(int dia, int mes, int año) {
+	vector<int> diasPorMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	if (bisiesto(año)) {
+		diasPorMes[1] = 29;
+	}
+}
+
+bool hospital::validarFecha(const string& fecha) {
+	int dia, mes, año;
+	char barraLateral;
+	stringstream defFecha(fecha);
+	defFecha >> dia >> barraLateral >> mes >> barraLateral >> año;
+
+	if (defFecha.fail() || barraLateral != '/' || !mesValido(mes) || !diaValido(dia, mes, año)){
+		return false;
+	}
+	if (!validarFecha(fecha)) {
+		return false;
+	}
+}
+
+bool hospital::validarHora(const string& fecha, const string& hora) {
+	int hora, minuto;
+	char puntos;
+	stringstream defHora(hora);
+	defHora >> hora >> puntos >> minuto;
+
+	if (defHora.fail() || puntos != ':' || hora < 0 || hora > 23 || minuto < 0 || minuto > 59) {
+		return false;
+	} 
+	return true;
+}
+
 //Opciones de pacientes
+
 void hospital::listadoPacientes() const {
 	cout << "Lista de pacientes:\n";
 	for (auto& paciente : listaPacientes) {
@@ -36,12 +80,15 @@ void hospital::eliminarPaciente(int idPaciente) {
 	if (idp != listaPacientes.end()) {
 		listaPacientes.erase(idp);
 		cout << "Paciente " << idPaciente << "Eliminado correctamente.\n";
-	} else {
+	}
+	else {
 		cout << "Paciente no enccontrado.\n";
 	}
 }
+
 //Opciones de medicos
-void hospital::listadoMedicos() const{ 
+
+void hospital::listadoMedicos() const {
 	cout << "Lista de medicos:\n";
 	for (auto& medico : listaMedicos) {
 		medico.datosMedico();
@@ -49,8 +96,8 @@ void hospital::listadoMedicos() const{
 }
 void hospital::registrarMedico(
 	int id,
-	const string& n, 
-	const string& tipo, 
+	const string& n,
+	const string& tipo,
 	bool disponible) {
 	listaMedicos.push_back(medico(id, n, tipo, disponible));
 	guardarMedico();
@@ -69,19 +116,24 @@ void hospital::eliminarMedico(int idMedico) {
 		cout << "Medico no enccontrado.\n";
 	}
 }
+
+
+
+
+
 //Opciones de citas
-void hospital::listadoCitas() const{
+void hospital::listadoCitas() const {
 	cout << "Lista de citas: \n";
 	for (auto& cita : listaCitas) {
 		cita.datosCitas();
 	}
 }
 void hospital::registrarCita(
-	int id, 
-	const string& fecha, 
+	int id,
+	const string& fecha,
 	const string& hora,
-	int idp, 
-	int idm, 
+	int idp,
+	int idm,
 	int urgente) {
 	listaCitas.push_back(cita(id, fecha, hora, idp, idm, urgente));
 	guardarCita();
@@ -101,22 +153,7 @@ void hospital::cancelarCita(int idCita) {
 	}
 }
 
-//Validaciones de fecha y hora
 
-bool hospital::bisiesto(int año) {
-	return (año % 4 == 0 (año % 100 != 0 || año % 400 == 0));
-}
-
-bool hospital::mesValido(int mes) {
-	return mes >= 1 && mes <= 12;
-}
-
-bool hospital::diaValido(int dia, int mes, int año) {
-	vector<int> diasPorMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	if (bisiesto(año)) {
-		diasPorMes[1] = 29;
-	}
-}
 
 //Guardar datos en los archivos
 
