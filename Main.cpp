@@ -56,6 +56,16 @@ void menuPacientes(hospital& hospital) {
 			hospital.eliminarPaciente(idPaciente);
 			break;
 		}
+		case 4: {
+			int idPaciente;
+			string nuevaFechaIngreso, nuevoHistorial;
+			cout << "Ingrese el ID del paciente: ";
+			cin >> idPaciente;
+			cout << "Nueva fecha de ingreso: ";
+			getline(cin, nuevaFechaIngreso);
+			hospital.modificarPaciente(idPaciente, nuevaFechaIngreso, nuevoHistorial);
+			break;
+		}
 		case 0:
 			cout << "Volviendo al menu principal \n";
 			break;

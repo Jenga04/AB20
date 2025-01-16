@@ -23,7 +23,7 @@ hospital(
 	void listadoPacientes() const;
 	void registrarPaciente(int idPaciente, const string& n, const string& fecha);
 	void eliminarPaciente(int idPaciente);
-	void modificarPaciente(int idPaciente, string nuevoNombre, string nuevoHistorial);
+	void modificarPaciente(int idPaciente, string nuevaFechaIngreso, string nuevoHistorial);
 	
 
 	

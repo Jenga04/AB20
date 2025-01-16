@@ -21,8 +21,7 @@ public:
 	string getNombrePaciente();
 	string getFechaIngreso();
 
-	void setNombrePaciente(string nuevoNombrePaciente);
-	void setFechaIngreso(string nuevaFecha);
+	void setFechaIngreso(string nuevaFechaIngreso);
 	void actualizarHistorial(string nuevoHistorial);
 	void DatosPaciente() const;
 };

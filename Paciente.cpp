@@ -17,9 +17,6 @@ string paciente::getNombrePaciente() {
 string paciente::getFechaIngreso() {
 	return fechaIngreso;
 }
-void paciente::setNombrePaciente(string nuevoNombrePaciente) {
-	nombrePaciente = nuevoNombrePaciente;
-}
 void paciente::setFechaIngreso(string nuevaFecha) {
 	fechaIngreso = nuevaFecha;
 }

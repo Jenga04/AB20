@@ -19,7 +19,7 @@ hospital::hospital(const string& archivoPacientes, const string& archivoMedicos,
 //Validaciones de fecha y hora
 
 bool bisiesto(int año) {
-	return (año % 4 == 0 (año % 100 != 0 || año % 400 == 0));
+	return (año % 4 == 0 &&(año % 100 != 0 || año % 400 == 0));
 }
 
 bool mesValido(int mes) {
@@ -109,13 +109,13 @@ void hospital::eliminarPaciente(int idPaciente) {
 	}
 }
 
-void hospital::modificarPaciente(int idPaciente, string nuevoNombre, string nuevoHistorial) {
+void hospital::modificarPaciente(int idPaciente, string nuevaFechaIngreso, string nuevoHistorial) {
 	auto buscarPaciente = find_if(listaPacientes.begin(), listaPacientes.end(),
 		[idPaciente](const paciente& listadoPacientes) {
 		return listadoPacientes.getIdPaciente() == idPaciente;
 		});
 	if (buscarPaciente != listaPacientes.end()) {
-		buscarPaciente->setNombrePaciente(nuevoNombre);
+		buscarPaciente->setFechaIngreso(nuevaFechaIngreso);
 		buscarPaciente->actualizarHistorial(nuevoHistorial);
 		cout << "Paciente " << idPaciente << " ha sido modificado";
 	}
