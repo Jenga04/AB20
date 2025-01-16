@@ -22,21 +22,18 @@ void mostrarMenu() {
 void menuPacientes(hospital& hospital) {
 	int opcionPacientes;
 	do {
-		cout << "Pacientes \n\n";
-		cout << "1: Lista de pacientes \n";
-		cout << "2: Registrar paciente \n";
-		cout << "3: Eliminar paciente \n";
-		cout << "4: Modificar paciente \n";
+		cout << "---Pacientes--- \n\n";
+		cout << "1: Registrar paciente \n";
+		cout << "2: Eliminar paciente \n";
+		cout << "3: Modificar paciente \n";
+		cout << "4: Lista de pacientes \n";
 		cout << "5: Buscar paciente \n";
 		cout << "0: Volver al menu principal\n";
 		cout << "Que desea realizar? ";
 		cin >> opcionPacientes;
 
 		switch (opcionPacientes) {
-		case 1: 
-			hospital.listadoPacientes();
-			break;
-		case 2: {
+		case 1: {
 			int id;
 			string n;
 			cout << "ID del paciente: ";
@@ -47,14 +44,14 @@ void menuPacientes(hospital& hospital) {
 			hospital.registrarPaciente(id, n, "");
 			break;
 		}
-		case 3: {
+		case 2: {
 			int idPaciente;
 			cout << "Ingrese el ID del paciente a eliminar ";
 			cin >> idPaciente;
 			hospital.eliminarPaciente(idPaciente);
 			break;
 		}
-		case 4: {
+		case 3: {
 			int idPaciente;
 			string nuevaFechaIngreso, nuevoHistorial;
 			cout << "Ingrese el ID del paciente: ";
@@ -64,6 +61,11 @@ void menuPacientes(hospital& hospital) {
 			hospital.modificarPaciente(idPaciente, nuevaFechaIngreso, nuevoHistorial);
 			break;
 		}
+		case 4: 
+			hospital.listadoPacientes();
+			break;
+		case 5:
+			break;
 		case 0:
 			cout << "Volviendo al menu principal \n";
 			break;
@@ -78,21 +80,19 @@ void menuPacientes(hospital& hospital) {
 void menuMedicos(hospital& hospital) {
 	int opcionMedicos;
 	do {
-		cout << "Medicos\n\n";
-		cout << "1: Lista de medicos \n";
-		cout << "2: Registrar medico \n";
-		cout << "3: Eliminar medico \n";
-		cout << "4: Modificar medico \n";
+		cout << "---Medicos---\n\n";
+		cout << "1: Registrar medico \n";
+		cout << "2: Eliminar medico \n";
+		cout << "3: Modificar medico \n";
+		cout << "4: Lista de medicos \n";
 		cout << "5: Buscar medico \n";
 		cout << "0: Volver al menu principal\n";
 		cout << "Que desea realizar? ";
 		cin >> opcionMedicos;
 
 		switch (opcionMedicos) {
-		case 1:
-			hospital.listadoMedicos();
-			break;
-		case 2: {
+		
+		case 1: {
 			int id;
 			string n, tipo;
 			bool disponible;
@@ -108,13 +108,18 @@ void menuMedicos(hospital& hospital) {
 			hospital.registrarMedico(id, n, tipo, disponible);
 			break;
 		}
-		case 3: {
+		case 2: {
 			int idMedico;
 			cout << "Ingrese el ID del medico a eliminar: ";
 			cin >> idMedico;
 			hospital.eliminarMedico(idMedico);
 			break;
 		}
+		case 3: 
+			break;
+		case 4:
+			hospital.listadoMedicos();
+			break;
 		case 0:
 			cout << "Volviendo al menu principal \n";
 			break;
@@ -129,20 +134,17 @@ void menuCitas(hospital& hospital) {
 	int opcionCitas;
 	do {
 		cout << "Citas\n\n";
-		cout << "1: Lista de citas \n";
-		cout << "2: Añadir cita \n";
-		cout << "3: Cancelar una cita \n";
-		cout << "4: Modificar cita \n";
+		cout << "1: Añadir cita \n";
+		cout << "2: Cancelar una cita \n";
+		cout << "3: Modificar cita \n";
+		cout << "4: Lista de citas \n";
 		cout << "5: Buscar cita \n";
 		cout << "0: Volver al menu principal\n";
 		cout << "Que desea realizar? ";
 		cin >> opcionCitas;
 
-		switch (opcionCitas) {
-		case 1:
-			hospital.listadoCitas();
-			break;
-		case 2: {
+		switch (opcionCitas) {	
+		case 1: {
 			int id, idp, idm, urgente;
 			string fechaCita, horaCita;
 			cout << "ID de la cita: ";
@@ -160,13 +162,18 @@ void menuCitas(hospital& hospital) {
 			hospital.registrarCita(id, fechaCita, horaCita, idp, idm, urgente);
 			break;
 		}
-		case 3: {
+		case 2: {
 			int idCita;
 			cout << "Ingrese el ID de la cita a cancelar: ";
 			cin >> idCita;
 			hospital.cancelarCita(idCita);
 			break;
 		}
+		case 3:
+			break;
+		case 4:
+			hospital.listadoCitas();
+			break;
 		case 0:
 			cout << "Volviendo al menu principal \n";
 			break;
