@@ -109,6 +109,22 @@ void hospital::eliminarPaciente(int idPaciente) {
 	}
 }
 
+void hospital::modificarPaciente(int idPaciente, string nuevoNombre, string nuevoHistorial) {
+	auto buscarPaciente = find_if(listaPacientes.begin(), listaPacientes.end(),
+		[idPaciente](const paciente& listadoPacientes) {
+		return listadoPacientes.getIdPaciente() == idPaciente;
+		});
+	if (buscarPaciente != listaPacientes.end()) {
+		buscarPaciente->setNombrePaciente(nuevoNombre);
+		buscarPaciente->actualizarHistorial(nuevoHistorial);
+		cout << "Paciente " << idPaciente << " ha sido modificado";
+	}
+	else {
+		cout << "Paciente no encontrado.\n";
+	}
+}
+
+
 //Opciones de medicos
 
 void hospital::listadoMedicos() const {
@@ -137,6 +153,22 @@ void hospital::eliminarMedico(int idMedico) {
 	}
 	else {
 		cout << "Medico no enccontrado.\n";
+	}
+}
+
+void hospital::modificarMedico(int idMedico, string nuevoNombre, string nuevaEspcialidad, bool nuevaDisponibilidad) {
+	auto buscarMedico = find_if(listaMedicos.begin(), listaMedicos.end(),
+		[idMedico](const medico& listaMedicos) {
+			return listaMedicos.getIdMedico() == idMedico;
+		});
+	if (buscarMedico != listaMedicos.end()) {
+		buscarMedico->setNombreMedico(nuevoNombre);
+		buscarMedico->setEspecialidad(nuevaEspcialidad);
+		buscarMedico->setDisponibilidad(nuevaDisponibilidad);
+		cout << "Medico " << idMedico << " modificado correctamente.";
+	}
+	else {
+		cout << "Medico no encontrado.";
 	}
 }
 
@@ -183,7 +215,21 @@ void hospital::cancelarCita(int idCita) {
 		cout << "Cita no enccontrada.\n";
 	}
 }
+void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHoraCita) {
+	auto buscarCita = find_if(listaCitas.begin(), listaCitas.end(),
+		[idCita](const cita& listaCitas) {
+			return listaCitas.getIdCita() == idCita;
+		});
+	if (buscarCita != listaCitas.end()) {
+		buscarCita->setFechaCita(nuevaFechaCita);
+		buscarCita->setHoraCita(nuevaHoraCita);
+		cout << "Cita " << idCita << " modificada correctamente.";
+	}
+	else {
+		cout << "Cita no encontrada.";
+	}
 
+}
 
 
 //Guardar datos en los archivos

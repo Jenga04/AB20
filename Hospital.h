@@ -23,7 +23,7 @@ hospital(
 	void listadoPacientes() const;
 	void registrarPaciente(int idPaciente, const string& n, const string& fecha);
 	void eliminarPaciente(int idPaciente);
-	//void modificarPaciente(int idPaciente, string nuevoNombre);
+	void modificarPaciente(int idPaciente, string nuevoNombre, string nuevoHistorial);
 	
 
 	
@@ -34,18 +34,18 @@ hospital(
 	//void listaMedicosDisponibles() const;
 	void registrarMedico(int idMedico, const string& n,const string& tipo, bool disponible);
 	void eliminarMedico(int idMedico);
-	//void modificarMedico(int idMedico, string nuevoNombre, string nuevaEspcialidad);
+	void modificarMedico(int idMedico, string nuevoNombre, string nuevaEspcialidad, bool nuevaDisponibilidad);
 	
 	
 //Citas
 	void listadoCitas() const;
 	//void listaCitasUrgencia() const;
-	void listaCitasFecha() const;
+	//void listaCitasFecha() const;
 	void registrarCita(int idCita, const string& fecha, const string& hora, int idp, int idm, int urgente);
 	bool validarFecha(const string& fecha);
 	bool validarHora(const string& fecha, const string& hora);
 	void cancelarCita(int idCita);
-	//void modificarCita(int idCita, string nuevaFechaHora);
+	void modificarCita(int idCita, string nuevaFechaCita, string nuevaHoraCita);
 	
 	
 
