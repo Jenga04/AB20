@@ -111,7 +111,7 @@ void hospital::modificarPaciente(int idPaciente, string nuevaFechaIngreso, strin
 	if (buscarPaciente != listaPacientes.end()) {
 		buscarPaciente->setFechaIngreso(nuevaFechaIngreso);
 		buscarPaciente->actualizarHistorial(nuevoHistorial);
-		cout << "Paciente " << idPaciente << " ha sido modificado";
+		cout << "Paciente " << idPaciente << " ha sido modificado\n";
 	}
 	else {
 		cout << "Paciente no encontrado.\n";
@@ -159,10 +159,10 @@ void hospital::modificarMedico(int idMedico, string nuevoNombre, string nuevaEsp
 		buscarMedico->setNombreMedico(nuevoNombre);
 		buscarMedico->setEspecialidad(nuevaEspcialidad);
 		buscarMedico->setDisponibilidad(nuevaDisponibilidad);
-		cout << "Medico " << idMedico << " modificado correctamente.";
+		cout << "Medico " << idMedico << " modificado correctamente.\n";
 	}
 	else {
-		cout << "Medico no encontrado.";
+		cout << "Medico no encontrado.\n";
 	}
 }
 
@@ -217,7 +217,7 @@ void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHora
 	if (buscarCita != listaCitas.end()) {
 		buscarCita->setFechaCita(nuevaFechaCita);
 		buscarCita->setHoraCita(nuevaHoraCita);
-		cout << "Cita " << idCita << " modificada correctamente.";
+		cout << "Cita " << idCita << " modificada correctamente.\n";
 	}
 	else {
 		cout << "Cita no encontrada.";

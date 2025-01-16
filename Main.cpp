@@ -29,7 +29,7 @@ void menuPacientes(hospital& hospital) {
 		cout << "4: Modificar paciente \n";
 		cout << "5: Buscar paciente \n";
 		cout << "0: Volver al menu principal\n";
-		cout << "¿Que desea realizar? ";
+		cout << "Que desea realizar? ";
 		cin >> opcionPacientes;
 
 		switch (opcionPacientes) {
@@ -49,7 +49,7 @@ void menuPacientes(hospital& hospital) {
 		}
 		case 3: {
 			int idPaciente;
-			cout << "Ingrese el ID del paciente a eliminar";
+			cout << "Ingrese el ID del paciente a eliminar ";
 			cin >> idPaciente;
 			hospital.eliminarPaciente(idPaciente);
 			break;
@@ -85,7 +85,7 @@ void menuMedicos(hospital& hospital) {
 		cout << "4: Modificar medico \n";
 		cout << "5: Buscar medico \n";
 		cout << "0: Volver al menu principal\n";
-		cout << "¿Que desea realizar? ";
+		cout << "Que desea realizar? ";
 		cin >> opcionMedicos;
 
 		switch (opcionMedicos) {
@@ -105,7 +105,6 @@ void menuMedicos(hospital& hospital) {
 			getline(cin, tipo);
 			cout << "Esta disponible? (1: Si, 0: no)";
 			cin >> disponible;
-			cout << "Medico registrado correctamente.\n";
 			hospital.registrarMedico(id, n, tipo, disponible);
 			break;
 		}
@@ -136,7 +135,7 @@ void menuCitas(hospital& hospital) {
 		cout << "4: Modificar cita \n";
 		cout << "5: Buscar cita \n";
 		cout << "0: Volver al menu principal\n";
-		cout << "¿Que desea realizar? ";
+		cout << "Que desea realizar? ";
 		cin >> opcionCitas;
 
 		switch (opcionCitas) {
@@ -156,7 +155,7 @@ void menuCitas(hospital& hospital) {
 			cin >> fechaCita;
 			cout << "Hora: ";
 			cin >> horaCita;
-			cout << "Urgencia  (1 a 5): ";
+			cout << "Urgencia  (1 a 5): \n";
 			cin >> urgente;
 			hospital.registrarCita(id, fechaCita, horaCita, idp, idm, urgente);
 			break;

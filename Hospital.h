@@ -30,7 +30,7 @@ hospital(
 
 //Medicos
 	void listadoMedicos() const;
-	//void listaMedicosEspecialidad(const string& especialidad);
+	void listaMedicosEspecialidad(const string& especialidad);
 	//void listaMedicosDisponibles() const;
 	void registrarMedico(int idMedico, const string& n,const string& tipo, bool disponible);
 	void eliminarMedico(int idMedico);

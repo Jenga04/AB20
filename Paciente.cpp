@@ -24,5 +24,5 @@ void paciente::actualizarHistorial(string nuevoHistorial) {
 	historial = nuevoHistorial;
 }
 void paciente::DatosPaciente() const{
-	cout << "ID del paciente: " << idPaciente << ".\nNombre: " << nombrePaciente << ".\nFecha de ingreso: " << fechaIngreso;
+	cout << "ID del paciente: " << idPaciente << ", nombre: " << nombrePaciente << ", fecha de ingreso: " << fechaIngreso << "\n";
 }
