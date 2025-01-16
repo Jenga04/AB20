@@ -128,6 +128,33 @@ void hospital::listadoMedicos() const {
 		medico.datosMedico();
 	}
 }
+void hospital::listaMedicosEspecialidad(const string& especialidad) {
+	cout << "Lista de medicos segun su especialidad:\n";
+
+	vector<medico> medicos = listaMedicos;
+	sort(medicos.begin(), medicos.end(), [](const medico& a, const medico& z) {
+		return a.getEspecialidad() < z.getEspecialidad();
+		});
+	for (const auto& medico : medicos) {
+		medico.datosMedico();
+	}
+}
+
+void hospital::listaMedicosDisponibles() const {
+	cout << "Medicos disponibles:\n";
+	for (const auto& medico : listaMedicos) {
+		if (medico.estaDisponible()) {
+			medico.datosMedico();
+		}
+	}
+	cout << "Medicos no disponobles:\n";
+	for (const auto& medico : listaMedicos) {
+		if (!medico.estaDisponible()) {
+			medico.datosMedico();
+		}
+	}
+}
+
 void hospital::registrarMedico(
 	int id,
 	const string& n,
@@ -157,7 +184,6 @@ void hospital::modificarMedico(int idMedico, string nuevoNombre, string nuevaEsp
 			return listaMedicos.getIdMedico() == idMedico;
 		});
 	if (buscarMedico != listaMedicos.end()) {
-		buscarMedico->setNombreMedico(nuevoNombre);
 		buscarMedico->setEspecialidad(nuevaEspcialidad);
 		buscarMedico->setDisponibilidad(nuevaDisponibilidad);
 		cout << "Medico " << idMedico << " modificado correctamente.\n";

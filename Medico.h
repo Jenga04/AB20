@@ -21,9 +21,7 @@ public:
 	string getNombreMedico() const;
 	string getEspecialidad() const;
 	bool estaDisponible() const;
-	void cambiarDisponibilidad(bool estado);
 
-	void setNombreMedico(string nuevoNombreMEdico);
 	void setEspecialidad(string nuevaEspecialidad);
 	void setDisponibilidad(bool nuevaDisponibilidad);
 	void datosMedico() const;
