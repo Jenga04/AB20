@@ -107,6 +107,12 @@ bool hospital::bisiesto(int año) {
 	return (año % 4 == 0 (año % 100 != 0 || año % 400 == 0));
 }
 
+bool hospital::mesValido(int mes) {
+	return mes >= 1 && mes <= 12;
+}
+
+
+
 //Guardar datos en los archivos
 
 void hospital::guardarPaciente(){
