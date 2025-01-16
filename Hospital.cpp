@@ -101,6 +101,12 @@ void hospital::cancelarCita(int idCita) {
 	}
 }
 
+//Validaciones de fecha y hora
+
+bool hospital::bisiesto(int año) {
+	return (año % 4 == 0 (año % 100 != 0 || año % 400 == 0));
+}
+
 //Guardar datos en los archivos
 
 void hospital::guardarPaciente(){

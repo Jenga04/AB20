@@ -119,14 +119,14 @@ void menuMedicos(hospital& hospital) {
 void menuCitas(hospital& hospital) {
 	int opcionCitas;
 	do {
-		cout << "Citas";
+		cout << "Citas\n";
 		cout << "1: Lista de citas \n";
 		cout << "2: Añadir cita \n";
 		cout << "3: Cancelar una cita \n";
 		cout << "4: Modificar cita \n";
 		cout << "5: Buscar cita \n";
 		cout << "0: Volver al menu principal";
-		cout << "¿Que desea realizar?";
+		cout << "¿Que desea realizar?\n";
 		cin >> opcionCitas;
 
 		switch (opcionCitas) {
