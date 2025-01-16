@@ -85,7 +85,9 @@ void menuMedicos(hospital& hospital) {
 		cout << "2: Eliminar medico \n";
 		cout << "3: Modificar medico \n";
 		cout << "4: Lista de medicos \n";
-		cout << "5: Buscar medico \n";
+		cout << "5: Lista por especialidad";
+		cout << "6: Lista por disponibilidad";
+		cout << "7: Buscar medico \n";
 		cout << "0: Volver al menu principal\n";
 		cout << "Que desea realizar? ";
 		cin >> opcionMedicos;
@@ -120,6 +122,14 @@ void menuMedicos(hospital& hospital) {
 		case 4:
 			hospital.listadoMedicos();
 			break;
+		case 5:
+			hospital.listaMedicosEspecialidad();
+			break;
+		case 6:
+			hospital.listaMedicosDisponibles();
+			break;
+		case 7:
+			break;
 		case 0:
 			cout << "Volviendo al menu principal \n";
 			break;
@@ -134,11 +144,13 @@ void menuCitas(hospital& hospital) {
 	int opcionCitas;
 	do {
 		cout << "Citas\n\n";
-		cout << "1: Añadir cita \n";
-		cout << "2: Cancelar una cita \n";
-		cout << "3: Modificar cita \n";
-		cout << "4: Lista de citas \n";
-		cout << "5: Buscar cita \n";
+		cout << "1: Añadir cita\n";
+		cout << "2: Cancelar una cita\n";
+		cout << "3: Modificar cita\n";
+		cout << "4: Lista de citas\n";
+		cout << "5: Lista por urgencia\n";
+		cout << "6: Lista por fecha\n";
+		cout << "7: Buscar cita\n";
 		cout << "0: Volver al menu principal\n";
 		cout << "Que desea realizar? ";
 		cin >> opcionCitas;
@@ -174,6 +186,12 @@ void menuCitas(hospital& hospital) {
 		case 4:
 			hospital.listadoCitas();
 			break;
+		case 5:
+			hospital.listaCitasUrgencia();
+			break;
+		case 6:
+			hospital.listaCitasFecha();
+		case 7:
 		case 0:
 			cout << "Volviendo al menu principal \n";
 			break;
