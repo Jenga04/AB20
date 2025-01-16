@@ -49,7 +49,7 @@ bool hospital::validarFecha(const string& fecha) {
 bool hospital::validarHora(const string& fecha, const string& hora){
 	int horas, minutos;
 	char puntos;
-	stringstream defHora(horas);
+	stringstream defHora(hora);
 	defHora >> horas >> puntos >> minutos;
 
 	if (defHora.fail() || puntos != ':' || horas < 0 || horas > 23 || minutos < 0 || minutos > 59) {
