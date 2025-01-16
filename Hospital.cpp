@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <sstream>
 using namespace std;
 
 
@@ -15,19 +16,20 @@ hospital::hospital(const string& archivoPacientes, const string& archivoMedicos,
 
 //Validaciones de fecha y hora
 
-bool hospital::bisiesto(int año) {
+bool bisiesto(int año) {
 	return (año % 4 == 0 (año % 100 != 0 || año % 400 == 0));
 }
 
-bool hospital::mesValido(int mes) {
+bool mesValido(int mes) {
 	return mes >= 1 && mes <= 12;
 }
 
-bool hospital::diaValido(int dia, int mes, int año) {
+bool diaValido(int dia, int mes, int año) {
 	vector<int> diasPorMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	if (bisiesto(año)) {
 		diasPorMes[1] = 29;
 	}
+	return dia >= 1 && dia <= diasPorMes[mes - 1];
 }
 
 bool hospital::validarFecha(const string& fecha) {
@@ -44,13 +46,13 @@ bool hospital::validarFecha(const string& fecha) {
 	}
 }
 
-bool hospital::validarHora(const string& fecha, const string& hora) {
-	int hora, minuto;
+bool hospital::validarHora(const string& fecha, const string& hora){
+	int horas, minutos;
 	char puntos;
-	stringstream defHora(hora);
-	defHora >> hora >> puntos >> minuto;
+	stringstream defHora(horas);
+	defHora >> horas >> puntos >> minutos;
 
-	if (defHora.fail() || puntos != ':' || hora < 0 || hora > 23 || minuto < 0 || minuto > 59) {
+	if (defHora.fail() || puntos != ':' || horas < 0 || horas > 23 || minutos < 0 || minutos > 59) {
 		return false;
 	} 
 	return true;
@@ -140,7 +142,6 @@ void hospital::registrarCita(
 	if (validarHora(fecha, hora)) {
 		listaCitas.push_back(cita(id, fecha, hora, idp, idm, urgente));
 		guardarCita();
-		cout << "Cita registrada correctamente.\n";
 
 		for (auto& paciente : listaPacientes) {
 			if (paciente.getIdPaciente() == idp) {

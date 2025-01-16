@@ -40,10 +40,10 @@ hospital(
 //Citas
 	void listadoCitas() const;
 	//void listaCitasUrgencia() const;
-	//void listaCitasFecha() const;
+	void listaCitasFecha() const;
 	void registrarCita(int idCita, const string& fecha, const string& hora, int idp, int idm, int urgente);
 	bool validarFecha(const string& fecha);
-	bool validarHora(const string& hora);
+	bool validarHora(const string& fecha, const string& hora);
 	void cancelarCita(int idCita);
 	//void modificarCita(int idCita, string nuevaFechaHora);
 	
