@@ -28,8 +28,8 @@ void menuPacientes(hospital& hospital) {
 		cout << "3: Eliminar paciente \n";
 		cout << "4: Modificar paciente \n";
 		cout << "5: Buscar paciente \n";
-		cout << "0: Volver al menu principal";
-		cout << "¿Que desea realizar?";
+		cout << "0: Volver al menu principal\n";
+		cout << "¿Que desea realizar? ";
 		cin >> opcionPacientes;
 
 		switch (opcionPacientes) {
@@ -70,7 +70,7 @@ void menuPacientes(hospital& hospital) {
 			cout << "Volviendo al menu principal \n";
 			break;
 		default:
-			cout << "Elija una opcion valida.";
+			cout << "Elija una opcion valida. \n";
 			break;
 		}
 	} while (opcionPacientes != 0);
@@ -86,8 +86,8 @@ void menuMedicos(hospital& hospital) {
 		cout << "3: Eliminar medico \n";
 		cout << "4: Modificar medico \n";
 		cout << "5: Buscar medico \n";
-		cout << "0: Volver al menu principal";
-		cout << "¿Que desea realizar?";
+		cout << "0: Volver al menu principal\n";
+		cout << "¿Que desea realizar? ";
 		cin >> opcionMedicos;
 
 		switch (opcionMedicos) {
@@ -113,7 +113,7 @@ void menuMedicos(hospital& hospital) {
 		}
 		case 3: {
 			int idMedico;
-			cout << "Ingrese el ID del medico a eliminar";
+			cout << "Ingrese el ID del medico a eliminar: ";
 			cin >> idMedico;
 			hospital.eliminarMedico(idMedico);
 			break;
@@ -122,7 +122,7 @@ void menuMedicos(hospital& hospital) {
 			cout << "Volviendo al menu principal \n";
 			break;
 		default:
-			cout << "Elija una opcion valida.";
+			cout << "Elija una opcion valida.\n";
 			break;
 		}
 	} while (opcionMedicos != 0);
@@ -137,8 +137,8 @@ void menuCitas(hospital& hospital) {
 		cout << "3: Cancelar una cita \n";
 		cout << "4: Modificar cita \n";
 		cout << "5: Buscar cita \n";
-		cout << "0: Volver al menu principal";
-		cout << "¿Que desea realizar?\n";
+		cout << "0: Volver al menu principal\n";
+		cout << "¿Que desea realizar? ";
 		cin >> opcionCitas;
 
 		switch (opcionCitas) {
@@ -165,7 +165,7 @@ void menuCitas(hospital& hospital) {
 		}
 		case 3: {
 			int idCita;
-			cout << "Ingrese el ID de la cita a cancelar";
+			cout << "Ingrese el ID de la cita a cancelar: ";
 			cin >> idCita;
 			hospital.cancelarCita(idCita);
 			break;
@@ -174,7 +174,7 @@ void menuCitas(hospital& hospital) {
 			cout << "Volviendo al menu principal \n";
 			break;
 		default:
-			cout << "Elija una opcion valida.";
+			cout << "Elija una opcion valida. ";
 			break;
 		}
 	} while (opcionCitas != 0);
@@ -202,7 +202,7 @@ int main() {
 			cout << "Saliendo";
 			break;
 		default:
-			cout << "Elija una opcion valida";
+			cout << "Elija una opcion valida\n";
 			break;
 		}	
 	} while (opcion != 0);

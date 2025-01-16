@@ -40,13 +40,11 @@ bool hospital::validarFecha(const string& fecha) {
 	stringstream defFecha(fecha);
 	defFecha >> dia >> barraLateral >> mes >> barraLateral >> año;
 
-	if (defFecha.fail() || barraLateral != '/' || !mesValido(mes) || !diaValido(dia, mes, año)){
+	if (defFecha.fail() || barraLateral != '/' || !mesValido(mes) || !diaValido(dia, mes, año)) {
 		return false;
 	}
-	if (!validarFecha(fecha)) {
-		return false;
-	}
-
+	return true;
+	
 	//fecha actual
 	time_t fechaExacta = time(nullptr);
 	tm* diaLocal = localtime(&fechaExacta);
@@ -61,7 +59,7 @@ bool hospital::validarFecha(const string& fecha) {
 	}
 	return true;
 }
-
+	
 bool hospital::validarHora(const string& fecha, const string& hora){
 	int horas, minutos;
 	char puntos;
@@ -86,15 +84,15 @@ void hospital::registrarPaciente(
 	int id,
 	const string& n,
 	const string& fecha) {
-	if (validarFecha(fecha)) {
-		listaPacientes.push_back(paciente(id, n, fecha));
-		guardarPaciente();
-		cout << "Paciente registrado correctamente. \n";
+	if (!validarFecha(fecha)) {
+		cout << "Fecha de ingreso invalido.";
+		return;
 	}
-	else {
-		cout << "Fecha de ingreso inválida. Prueba otra vez.\n";
-	}
+	listaPacientes.push_back(paciente(id, n, fecha));
+	guardarPaciente();
+	cout << "Paciente registrado correctamente. \n";
 }
+
 void hospital::eliminarPaciente(int idPaciente) {
 	auto idp = find_if(listaPacientes.begin(), listaPacientes.end(),
 		[idPaciente](const paciente& listadoPacientes) {
