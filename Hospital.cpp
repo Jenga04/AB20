@@ -84,10 +84,6 @@ void hospital::registrarPaciente(
 	int id,
 	const string& n,
 	const string& fecha) {
-	if (!validarFecha(fecha)) {
-		cout << "Fecha de ingreso invalido.";
-		return;
-	}
 	listaPacientes.push_back(paciente(id, n, fecha));
 	guardarPaciente();
 	cout << "Paciente registrado correctamente. \n";
@@ -185,21 +181,21 @@ void hospital::registrarCita(
 	int idp,
 	int idm,
 	int urgente) {
-	if (validarHora(fecha, hora)) {
-		listaCitas.push_back(cita(id, fecha, hora, idp, idm, urgente));
-		guardarCita();
-
-		for (auto& paciente : listaPacientes) {
-			if (paciente.getIdPaciente() == idp) {
+	if (!validarFecha(fecha) || !validarHora(fecha, hora)) {
+		cout << "Fecha u hora invalidas. Intenta de nuevo.\n";
+		return;
+	}
+	listaCitas.push_back(cita(id, fecha, hora, idp, idm, urgente));
+	guardarCita();
+	cout << "Cita registrada correctamente.\n";
+	for (auto& paciente : listaPacientes) {
+		if (paciente.getIdPaciente() == idp) {
 			paciente.setFechaIngreso(fecha);
 			break;
-			}
 		}
-		cout << "Cita registrada correctamente.\n";
-		} else {
-		cout << "Fecha y hora invalidas. Intenta de nuevo.\n";
 	}
 }
+
 void hospital::cancelarCita(int idCita) {
 	auto idc = find_if(listaCitas.begin(), listaCitas.end(),
 		[idCita](const cita& listaCitas) {

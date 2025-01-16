@@ -38,15 +38,13 @@ void menuPacientes(hospital& hospital) {
 			break;
 		case 2: {
 			int id;
-			string n, fecha;
+			string n;
 			cout << "ID del paciente: ";
 			cin >> id;
 			cout << "Nombre del paciente: ";
 			cin.ignore();
 			getline(cin, n);
-			cout << "Fecha de ingreso (DD/MM/AAAA): ";
-			getline(cin, fecha);
-			hospital.registrarPaciente(id, n, fecha);
+			hospital.registrarPaciente(id, n, "");
 			break;
 		}
 		case 3: {
