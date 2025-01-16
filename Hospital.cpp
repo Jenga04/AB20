@@ -111,7 +111,12 @@ bool hospital::mesValido(int mes) {
 	return mes >= 1 && mes <= 12;
 }
 
-
+bool hospital::diaValido(int dia, int mes, int año) {
+	vector<int> diasPorMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	if (bisiesto(año)) {
+		diasPorMes[1] = 29;
+	}
+}
 
 //Guardar datos en los archivos
 
