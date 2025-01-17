@@ -337,21 +337,56 @@ void hospital::listaCitasFecha() const {
 
 void hospital::guardarPaciente(){
 	ofstream archivo(archivoPacientes);
+	archivo << "ID, Nombre, Fecha de ingreso \n";
+
 	for (auto& paciente : listaPacientes) {
-		archivo << paciente.getIdPaciente() << ", " << paciente.getNombrePaciente() << ", " << paciente.getFechaIngreso();
+		archivo << paciente.getIdPaciente() << ", " << paciente.getNombrePaciente() << ", " << paciente.getFechaIngreso() << "\n";
 	}
+	archivo.close();
 }
 
 void hospital::guardarMedico(){
 	ofstream archivo(archivoMedicos);
+	archivo << "ID, Nombre, Especialidad, Disponibilidad \n";
+
 	for (const auto& medico : listaMedicos) {
 		archivo << medico.getIdMedico() << "," << medico.getNombreMedico() << "," << medico.getEspecialidad() << "," << (medico.estaDisponible() ? "1" : "0") << "\n";
 	}
+	archivo.close();
 }
 
 void hospital::guardarCita() {
 	ofstream archivo(archivoCitas);
+	archivo << "ID, Fecha, Hora, ID del paciente, ID del medico, Urgencia \n";
+
 	for (const auto& cita : listaCitas) {
 		archivo << cita.getIdCita() << ", " << cita.getFechaCita() << ", " << cita.getHoraCita()<< ", " << cita.getIdPaciente() << ", " << cita.getIdMedico() << ", " << cita.getUrgencia() << "\n";
+	}
+	archivo.close();
+}
+
+//Cargar datos del archivo
+
+void hospital::cargarPaciente() {
+	ifstream archivo(archivoPacientes);
+	if (!archivo) {
+		cout << "No se pudo abrir el archivo. \n";
+		return;
+	}
+
+}
+
+void hospital::cargarMedico() {
+	ifstream archivo(archivoMedicos);
+	if (!archivo) {
+		cout << "No se pudo abrir el archivo. \n";
+		return;
+	}
+}
+void hospital::cargarCita() {
+	ifstream archivo(archivoCitas);
+	if (!archivo) {
+		cout << "No se pudo abrir el archivo. \n";
+		return;
 	}
 }

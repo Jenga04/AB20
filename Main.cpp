@@ -233,7 +233,7 @@ void menuCitas(hospital& hospital) {
 void menuArchivos (hospital& hospital) {
 	int opcionArchivos;
 	do {
-		cout << "---Respaldo de datos---";
+		cout << "---Respaldo de datos--- \n\n";
 		cout << "1: Cargar pacientes \n";
 		cout << "2: Cargar medicos \n";
 		cout << "3: Cargar citas \n";
@@ -243,10 +243,13 @@ void menuArchivos (hospital& hospital) {
 
 		switch (opcionArchivos) {
 		case 1:
+			hospital.cargarPaciente();
 			break;
 		case 2:
+			hospital.cargarMedico();
 			break;
 		case 3:
+			hospital.cargarCita();
 			break;
 		case 0:
 			cout << "Volviendo al menu principal. \n";
@@ -275,6 +278,8 @@ int main() {
 		case 3:
 			menuCitas(hospital);
 			break;
+		case 4:
+			menuArchivos(hospital);
 		case 0:
 			cout << "Saliendo";
 			break;

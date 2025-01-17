@@ -58,7 +58,7 @@ hospital(
 	void guardarMedico();
 	void guardarCita();
 	
-	//void cargarPaciente();
-	//void cargarMedico();
-	//void caragrCita();
+	void cargarPaciente();
+	void cargarMedico();
+	void cargarCita();
 };
