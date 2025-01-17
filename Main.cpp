@@ -160,7 +160,7 @@ void menuCitas(hospital& hospital) {
 	int opcionCitas;
 	do {
 		cout << "Citas\n\n";
-		cout << "1: Añadir cita \n";
+		cout << "1: Registrar cita \n";
 		cout << "2: Cancelar una cita \n";
 		cout << "3: Modificar cita \n";
 		cout << "4: Lista de citas \n";
@@ -180,7 +180,7 @@ void menuCitas(hospital& hospital) {
 			cout << "ID del paciente: ";
 			cin >> idp;
 			cout << "ID del medico: ";
-			cin >> idm;
+			cin >> idm; 
 			cout << "Fecha (DD/MM/YYYY): ";
 			cin >> fechaCita;
 			cout << "Hora: ";
