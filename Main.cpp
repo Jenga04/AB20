@@ -280,8 +280,9 @@ int main() {
 			break;
 		case 4:
 			menuArchivos(hospital);
+			break;
 		case 0:
-			cout << "Saliendo";
+			cout << "Saliendo \n";
 			break;
 		default:
 			cout << "Elija una opcion valida\n";
