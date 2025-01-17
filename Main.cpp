@@ -197,8 +197,18 @@ void menuCitas(hospital& hospital) {
 			hospital.cancelarCita(idCita);
 			break;
 		}
-		case 3:
+		case 3: {
+			int idCita;
+			string nuevaFechaCita, nuevaHoraCita;
+			cout << "Ingrese el ID de la cita: ";
+			cin >> idCita;
+			cout << "Nueva fecha de cita: ";
+			getline(cin, nuevaFechaCita);
+			cout << "Nueva hora de cita: ";
+			getline(cin, nuevaHoraCita);
+			hospital.modificarCita(idCita, nuevaFechaCita, nuevaHoraCita);
 			break;
+		}
 		case 4:
 			hospital.listadoCitas();
 			break;
