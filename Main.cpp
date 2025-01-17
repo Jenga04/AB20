@@ -181,11 +181,11 @@ void menuCitas(hospital& hospital) {
 			cin >> idp;
 			cout << "ID del medico: ";
 			cin >> idm;
-			cout << "Fecha (DD/MM/YYYY)";
+			cout << "Fecha (DD/MM/YYYY): ";
 			cin >> fechaCita;
 			cout << "Hora: ";
 			cin >> horaCita;
-			cout << "Urgencia  (1 a 5): \n";
+			cout << "Urgencia  (1 a 5): ";
 			cin >> urgente;
 			hospital.registrarCita(id, fechaCita, horaCita, idp, idm, urgente);
 			break;
@@ -203,9 +203,9 @@ void menuCitas(hospital& hospital) {
 			cout << "Ingrese el ID de la cita: ";
 			cin >> idCita;
 			cout << "Nueva fecha de cita: ";
-			getline(cin, nuevaFechaCita);
+			cin >> nuevaFechaCita;
 			cout << "Nueva hora de cita: ";
-			getline(cin, nuevaHoraCita);
+			cin >> nuevaHoraCita;
 			hospital.modificarCita(idCita, nuevaFechaCita, nuevaHoraCita);
 			break;
 		}

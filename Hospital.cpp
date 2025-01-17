@@ -251,6 +251,10 @@ void hospital::cancelarCita(int idCita) {
 	}
 }
 void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHoraCita) {
+	if (!validarFecha(nuevaFechaCita) || !validarHora(nuevaFechaCita, nuevaHoraCita)) {
+		cout << "Fecha u hora invalidas. Intenta de nuevo.\n";
+		return;
+	}
 	auto buscarCita = find_if(listaCitas.begin(), listaCitas.end(),
 		[idCita](const cita& listaCitas) {
 			return listaCitas.getIdCita() == idCita;
@@ -258,7 +262,7 @@ void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHora
 	if (buscarCita != listaCitas.end()) {
 		buscarCita->setFechaCita(nuevaFechaCita);
 		buscarCita->setHoraCita(nuevaHoraCita);
-		cout << "Cita " << idCita << " modificada correctamente";
+		cout << "Cita " << idCita << " modificada correctamente\n";
 		for (auto& paciente : listaPacientes) {
 			if (paciente.getIdPaciente() == buscarCita->getIdPaciente()); {
 				paciente.setFechaIngreso(nuevaFechaCita);
@@ -267,7 +271,7 @@ void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHora
 		}
 	}
 	else {
-		cout << "Cita no encontrada.";
+		cout << "Cita no encontrada.\n";
 	}
 
 }
