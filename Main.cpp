@@ -10,7 +10,7 @@
 using namespace std;
 
 void mostrarMenu() {
-	cout << "Menu \n\n";
+	cout << "-----Menu------ \n\n";
 	cout << "1: Pacientes \n";
 	cout << "2: Medicos \n";
 	cout << "3: Citas \n";
@@ -224,12 +224,39 @@ void menuCitas(hospital& hospital) {
 			cout << "Volviendo al menu principal \n";
 			break;
 		default:
-			cout << "Elija una opcion valida. ";
+			cout << "Elija una opcion valida. \n";
 			break;
 		}
 	} while (opcionCitas != 0);
 }
 
+void menuArchivos (hospital& hospital) {
+	int opcionArchivos;
+	do {
+		cout << "---Respaldo de datos---";
+		cout << "1: Cargar pacientes \n";
+		cout << "2: Cargar medicos \n";
+		cout << "3: Cargar citas \n";
+		cout << "0: Salir \n";
+		cout << "Que desea realizar? ";
+		cin >> opcionArchivos;
+
+		switch (opcionArchivos) {
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 0:
+			cout << "Volviendo al menu principal. \n";
+			break;
+		default:
+			cout << "Elija una opcion valida \n";
+			break;
+		}
+	} while (opcionArchivos != 0);
+}
 int main() {
 	hospital hospital ("pacientes.csv", "medicos.csv", "citas.csv");
 	int opcion;

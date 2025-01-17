@@ -113,6 +113,10 @@ void hospital::modificarPaciente(int idPaciente, string nuevaFechaIngreso, strin
 }
 
 void hospital::listadoPacientes() const {
+	vector<paciente> pacientes = listaPacientes;
+	sort(pacientes.begin(), pacientes.end(), [](const paciente& primero, const paciente& ultimo) {
+		return primero.getIdPaciente() < ultimo.getIdPaciente();
+		});
 	cout << "Lista de pacientes:\n";
 	for (auto& paciente : listaPacientes) {
 		paciente.DatosPaciente();
@@ -180,9 +184,16 @@ void hospital::modificarMedico(int idMedico, bool nuevaDisponibilidad) {
 	}
 }
 void hospital::listadoMedicos() const {
-	cout << "Lista de medicos:\n";
-	for (auto& medico : listaMedicos) {
+	vector<medico> medicos = listaMedicos;
+	sort(medicos.begin(), medicos.end(), [](const medico& primero, const medico& ultimo) {
+		return primero.getIdMedico() < ultimo.getIdMedico();
+		});
+	for (const auto& medico : medicos) {
 		medico.datosMedico();
+		cout << "Lista de medicos:\n";
+		for (auto& medico : listaMedicos) {
+			medico.datosMedico();
+		}
 	}
 }
 void hospital::listaMedicosEspecialidad() const {
@@ -276,7 +287,7 @@ void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHora
 		buscarCita->setHoraCita(nuevaHoraCita);
 		cout << "Cita " << idCita << " modificada correctamente\n";
 		for (auto& paciente : listaPacientes) {
-			if (paciente.getIdPaciente() == buscarCita->getIdPaciente()); {
+			if (paciente.getIdPaciente() == buscarCita->getIdPaciente()) {
 				paciente.setFechaIngreso(nuevaFechaCita);
 				break;
 			}
@@ -288,6 +299,10 @@ void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHora
 }
 
 void hospital::listadoCitas() const {
+	vector<cita> citas = listaCitas;
+	sort(citas.begin(), citas.end(), [](const cita& primero, const cita& ultimo) {
+		return primero.getIdCita() < ultimo.getIdCita();
+		});
 	cout << "Lista de citas: \n";
 	for (auto& cita : listaCitas) {
 		cita.datosCitas();
