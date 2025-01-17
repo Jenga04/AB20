@@ -128,7 +128,7 @@ void hospital::listadoMedicos() const {
 		medico.datosMedico();
 	}
 }
-void hospital::listaMedicosEspecialidad(const string& especialidad) {
+void hospital::listaMedicosEspecialidad() const {
 	cout << "Lista de medicos segun su especialidad:\n";
 
 	vector<medico> medicos = listaMedicos;

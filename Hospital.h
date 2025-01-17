@@ -38,7 +38,7 @@ hospital(
 	void eliminarMedico(int idMedico);
 	void modificarMedico(int idMedico, string nuevoNombre, string nuevaEspcialidad, bool nuevaDisponibilidad);
 	void listadoMedicos() const;
-	void listaMedicosEspecialidad(const string& especialidad);
+	void listaMedicosEspecialidad() const;
 	void listaMedicosDisponibles() const;
 	
 //Citas
