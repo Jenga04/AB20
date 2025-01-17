@@ -105,7 +105,6 @@ void hospital::modificarPaciente(int idPaciente, string nuevaFechaIngreso, strin
 		});
 	if (buscarPaciente != listaPacientes.end()) {
 		buscarPaciente->setFechaIngreso(nuevaFechaIngreso);
-		buscarPaciente->actualizarHistorial(nuevoHistorial);
 		cout << "Paciente " << idPaciente << " ha sido modificado\n";
 	}
 	else {

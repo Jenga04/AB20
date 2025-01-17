@@ -9,7 +9,6 @@ private:
 	int idPaciente;
 	string nombrePaciente;
 	string fechaIngreso;
-	string historial;
 
 public:
 	paciente(
@@ -22,7 +21,6 @@ public:
 	string getFechaIngreso() const;
 
 	void setFechaIngreso(string nuevaFechaIngreso);
-	void actualizarHistorial(string nuevoHistorial);
 	void DatosPaciente() const;
 };
 
