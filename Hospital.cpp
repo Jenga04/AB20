@@ -75,12 +75,6 @@ bool hospital::validarHora(const string& fecha, const string& hora){
 
 //Opciones de pacientes
 
-void hospital::listadoPacientes() const {
-	cout << "Lista de pacientes:\n";
-	for (auto& paciente : listaPacientes) {
-		paciente.DatosPaciente();
-	}
-}
 void hospital::registrarPaciente(
 	int id,
 	const string& n,
@@ -119,41 +113,36 @@ void hospital::modificarPaciente(int idPaciente, string nuevaFechaIngreso, strin
 	}
 }
 
+void hospital::listadoPacientes() const {
+	cout << "Lista de pacientes:\n";
+	for (auto& paciente : listaPacientes) {
+		paciente.DatosPaciente();
+	}
+}
+
+void hospital::listaPacientesNombre() const {
+	cout << "Lista por nombre: \n";
+	vector<paciente> pacientes = listaPacientes;
+	sort(pacientes.begin(), pacientes.end(), [](const paciente& a, const paciente& z) {
+		return a.getNombrePaciente() < z.getNombrePaciente();
+		});
+	for (const auto& paciente : pacientes) {
+		paciente.DatosPaciente();
+	}
+}
+
+void hospital::listaPacientesFecha() const {
+	cout << "Lista por fecha: \n";
+	vector<paciente> pacientes = listaPacientes;
+	sort(pacientes.begin(), pacientes.end(), [](const paciente& fechaCercana, const paciente& fechaLejana) {
+		return fechaCercana.getFechaIngreso() > fechaLejana.getFechaIngreso();
+		});
+	for (const auto& paciente : pacientes) {
+		paciente.DatosPaciente();
+	}
+}
 
 //Opciones de medicos
-
-void hospital::listadoMedicos() const {
-	cout << "Lista de medicos:\n";
-	for (auto& medico : listaMedicos) {
-		medico.datosMedico();
-	}
-}
-void hospital::listaMedicosEspecialidad() const {
-	cout << "Lista de medicos segun su especialidad:\n";
-
-	vector<medico> medicos = listaMedicos;
-	sort(medicos.begin(), medicos.end(), [](const medico& a, const medico& z) {
-		return a.getEspecialidad() < z.getEspecialidad();
-		});
-	for (const auto& medico : medicos) {
-		medico.datosMedico();
-	}
-}
-
-void hospital::listaMedicosDisponibles() const {
-	cout << "Medicos disponibles:\n";
-	for (const auto& medico : listaMedicos) {
-		if (medico.estaDisponible()) {
-			medico.datosMedico();
-		}
-	}
-	cout << "Medicos no disponobles:\n";
-	for (const auto& medico : listaMedicos) {
-		if (!medico.estaDisponible()) {
-			medico.datosMedico();
-		}
-	}
-}
 
 void hospital::registrarMedico(
 	int id,
@@ -192,39 +181,41 @@ void hospital::modificarMedico(int idMedico, string nuevoNombre, string nuevaEsp
 		cout << "Medico no encontrado.\n";
 	}
 }
+void hospital::listadoMedicos() const {
+	cout << "Lista de medicos:\n";
+	for (auto& medico : listaMedicos) {
+		medico.datosMedico();
+	}
+}
+void hospital::listaMedicosEspecialidad() const {
+	cout << "Lista de medicos segun su especialidad:\n";
+
+	vector<medico> medicos = listaMedicos;
+	sort(medicos.begin(), medicos.end(), [](const medico& a, const medico& z) {
+		return a.getEspecialidad() < z.getEspecialidad();
+		});
+	for (const auto& medico : medicos) {
+		medico.datosMedico();
+	}
+}
+
+void hospital::listaMedicosDisponibles() const {
+	cout << "Medicos disponibles:\n";
+	for (const auto& medico : listaMedicos) {
+		if (medico.estaDisponible()) {
+			medico.datosMedico();
+		}
+	}
+	cout << "Medicos no disponobles:\n";
+	for (const auto& medico : listaMedicos) {
+		if (!medico.estaDisponible()) {
+			medico.datosMedico();
+		}
+	}
+}
 
 //Opciones de citas
 
-void hospital::listadoCitas() const {
-	cout << "Lista de citas: \n";
-	for (auto& cita : listaCitas) {
-		cita.datosCitas();
-	}
-}
-
-void hospital::listaCitasUrgencia() const {
-	cout << "Lista de citas urgentes: \n";
-
-	vector<cita> citas = listaCitas;
-	sort(citas.begin(), citas.end(), [](const cita& urgenciaMayor, const cita& urganciaMenor) {
-		return urgenciaMayor.getUrgencia() > urganciaMenor.getUrgencia();
-		});
-	for (const auto& cita : citas) {
-		cita.datosCitas();
-	}
-}
-
-void hospital::listaCitasFecha() const {
-	cout << "Lista de citas por fecha: \n";
-
-	vector <cita> citas = listaCitas;
-	sort(citas.begin(), citas.end(), [](const cita& fechaCercana, const cita& fechaLejana) {
-		return fechaCercana.getFechaCita() > fechaLejana.getFechaCita();
-		});
-	for (const auto& cita : citas) {
-		cita.datosCitas();
-	}
-}
 void hospital::registrarCita(
 	int id,
 	const string& fecha,
@@ -276,6 +267,36 @@ void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHora
 
 }
 
+void hospital::listadoCitas() const {
+	cout << "Lista de citas: \n";
+	for (auto& cita : listaCitas) {
+		cita.datosCitas();
+	}
+}
+
+void hospital::listaCitasUrgencia() const {
+	cout << "Lista de citas urgentes: \n";
+
+	vector<cita> citas = listaCitas;
+	sort(citas.begin(), citas.end(), [](const cita& urgenciaMayor, const cita& urganciaMenor) {
+		return urgenciaMayor.getUrgencia() > urganciaMenor.getUrgencia();
+		});
+	for (const auto& cita : citas) {
+		cita.datosCitas();
+	}
+}
+
+void hospital::listaCitasFecha() const {
+	cout << "Lista de citas por fecha: \n";
+
+	vector <cita> citas = listaCitas;
+	sort(citas.begin(), citas.end(), [](const cita& fechaCercana, const cita& fechaLejana) {
+		return fechaCercana.getFechaCita() > fechaLejana.getFechaCita();
+		});
+	for (const auto& cita : citas) {
+		cita.datosCitas();
+	}
+}
 
 //Guardar datos en los archivos
 

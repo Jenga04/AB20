@@ -11,10 +11,10 @@ paciente::paciente (int id, string n, string fechaCita):
 int paciente::getIdPaciente() const {
 	return idPaciente;
 }
-string paciente::getNombrePaciente() {
+string paciente::getNombrePaciente() const {
 	return nombrePaciente;
 }
-string paciente::getFechaIngreso() {
+string paciente::getFechaIngreso() const {
 	return fechaIngreso;
 }
 void paciente::setFechaIngreso(string nuevaFecha) {

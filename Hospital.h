@@ -31,6 +31,8 @@ hospital(
 	void eliminarPaciente(int idPaciente);
 	void modificarPaciente(int idPaciente, string nuevaFechaIngreso, string nuevoHistorial);
 	void listadoPacientes() const;
+	void listaPacientesNombre() const;
+	void listaPacientesFecha() const;
 
 //Medicos
 	

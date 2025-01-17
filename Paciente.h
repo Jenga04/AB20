@@ -18,8 +18,8 @@ public:
 		string fecha);
 
 	int getIdPaciente() const;
-	string getNombrePaciente();
-	string getFechaIngreso();
+	string getNombrePaciente() const;
+	string getFechaIngreso() const;
 
 	void setFechaIngreso(string nuevaFechaIngreso);
 	void actualizarHistorial(string nuevoHistorial);
