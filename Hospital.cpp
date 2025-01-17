@@ -85,12 +85,12 @@ void hospital::registrarPaciente(
 }
 
 void hospital::eliminarPaciente(int idPaciente) {
-	auto idp = find_if(listaPacientes.begin(), listaPacientes.end(),
+	auto buscarPaciente = find_if(listaPacientes.begin(), listaPacientes.end(),
 		[idPaciente](const paciente& listadoPacientes) {
 			return listadoPacientes.getIdPaciente() == idPaciente;
 		});
-	if (idp != listaPacientes.end()) {
-		listaPacientes.erase(idp);
+	if (buscarPaciente != listaPacientes.end()) {
+		listaPacientes.erase(buscarPaciente);
 		cout << "Paciente " << idPaciente << "Eliminado correctamente.\n";
 	}
 	else {
@@ -154,12 +154,12 @@ void hospital::registrarMedico(
 	cout << "Medico registrado correctamente. \n";
 }
 void hospital::eliminarMedico(int idMedico) {
-	auto idm = find_if(listaMedicos.begin(), listaMedicos.end(),
+	auto buscarMedico = find_if(listaMedicos.begin(), listaMedicos.end(),
 		[idMedico](const medico& listaMedicos) {
 			return listaMedicos.getIdMedico() == idMedico;
 		});
-	if (idm != listaMedicos.end()) {
-		listaMedicos.erase(idm);
+	if (buscarMedico != listaMedicos.end()) {
+		listaMedicos.erase(buscarMedico);
 		cout << "Medico " << idMedico << "Eliminado correctamente.\n";
 	}
 	else {
@@ -222,6 +222,19 @@ void hospital::registrarCita(
 	int idp,
 	int idm,
 	int urgente) {
+	auto buscarMedico = find_if(listaMedicos.begin(), listaMedicos.end(),
+		[idm](const medico& listaMedicos) {
+			return listaMedicos.getIdMedico() == idm;
+		});
+
+	if (buscarMedico == listaMedicos.end()) {
+		cout << "ID de medico no valido.\n";
+		return;
+	}
+	if (!buscarMedico->estaDisponible()) {
+		cout << "Este medico no esta disponible. \n";
+		return;
+	}
 	if (!validarFecha(fecha) || !validarHora(fecha, hora)) {
 		cout << "Fecha u hora invalidas. Intenta de nuevo.\n";
 		return;
@@ -238,12 +251,12 @@ void hospital::registrarCita(
 }
 
 void hospital::cancelarCita(int idCita) {
-	auto idc = find_if(listaCitas.begin(), listaCitas.end(),
+	auto buscarCita = find_if(listaCitas.begin(), listaCitas.end(),
 		[idCita](const cita& listaCitas) {
 			return listaCitas.getIdCita() == idCita;
 		});
-	if (idc != listaCitas.end()) {
-		listaCitas.erase(idc);
+	if (buscarCita != listaCitas.end()) {
+		listaCitas.erase(buscarCita);
 		cout << "Cita " << idCita << "Eliminada correctamente.\n";
 	}
 	else {
@@ -273,7 +286,6 @@ void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHora
 	else {
 		cout << "Cita no encontrada.\n";
 	}
-
 }
 
 void hospital::listadoCitas() const {
