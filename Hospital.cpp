@@ -167,7 +167,7 @@ void hospital::eliminarMedico(int idMedico) {
 	}
 }
 
-void hospital::modificarMedico(int idMedico, string nuevoNombre, string nuevaEspcialidad, bool nuevaDisponibilidad) {
+void hospital::modificarMedico(int idMedico, bool nuevaDisponibilidad) {
 	auto buscarMedico = find_if(listaMedicos.begin(), listaMedicos.end(),
 		[idMedico](const medico& listaMedicos) {
 			return listaMedicos.getIdMedico() == idMedico;

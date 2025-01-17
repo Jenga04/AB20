@@ -33,4 +33,4 @@ public:
 	void datosCitas() const;
 };
 
-#endif
+#endif //!CITA_H

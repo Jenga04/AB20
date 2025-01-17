@@ -22,9 +22,8 @@ public:
 	string getEspecialidad() const;
 	bool estaDisponible() const;
 
-	void setEspecialidad(string nuevaEspecialidad);
 	void setDisponibilidad(bool nuevaDisponibilidad);
 	void datosMedico() const;
 };
 
-#endif
+#endif // !MEDICO_H

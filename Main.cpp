@@ -124,7 +124,16 @@ void menuMedicos(hospital& hospital) {
 			hospital.eliminarMedico(idMedico);
 			break;
 		}
-		case 3: 
+		case 3: {
+			int idMedico;
+			bool nuevaDisponibilidad;
+			cout << "Ingrese el ID del medico: ";
+			cin >> idMedico;
+			cout << "Esta disponible? (1: Si, 0: no)";;
+			cin >> nuevaDisponibilidad;
+			hospital.modificarMedico(idMedico, nuevaDisponibilidad);
+			break;
+		}
 			break;
 		case 4:
 			hospital.listadoMedicos();
