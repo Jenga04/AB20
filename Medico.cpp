@@ -20,9 +20,6 @@ string medico::getEspecialidad() const{
 bool medico::estaDisponible() const{
 	return disponibilidad;
 }
-void medico::setEspecialidad(string nuevaEspecialidad) {
-	especialidad = nuevaEspecialidad;
-}
 void medico::setDisponibilidad(bool nuevaDisponibilidad) {
 	disponibilidad = nuevaDisponibilidad;
 }

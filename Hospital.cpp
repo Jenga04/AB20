@@ -173,7 +173,6 @@ void hospital::modificarMedico(int idMedico, bool nuevaDisponibilidad) {
 			return listaMedicos.getIdMedico() == idMedico;
 		});
 	if (buscarMedico != listaMedicos.end()) {
-		buscarMedico->setEspecialidad(nuevaEspcialidad);
 		buscarMedico->setDisponibilidad(nuevaDisponibilidad);
 		cout << "Medico " << idMedico << " modificado correctamente.\n";
 	}
@@ -259,7 +258,13 @@ void hospital::modificarCita(int idCita, string nuevaFechaCita, string nuevaHora
 	if (buscarCita != listaCitas.end()) {
 		buscarCita->setFechaCita(nuevaFechaCita);
 		buscarCita->setHoraCita(nuevaHoraCita);
-		cout << "Cita " << idCita << " modificada correctamente.\n";
+		cout << "Cita " << idCita << " modificada correctamente";
+		for (auto& paciente : listaPacientes) {
+			if (paciente.getIdPaciente() == buscarCita->getIdPaciente()); {
+				paciente.setFechaIngreso(nuevaFechaCita);
+				break;
+			}
+		}
 	}
 	else {
 		cout << "Cita no encontrada.";
