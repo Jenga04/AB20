@@ -232,11 +232,18 @@ void hospital::registrarCita(
 	int idp,
 	int idm,
 	int urgente) {
+	auto buscarPaciente = find_if(listaPacientes.begin(), listaPacientes.end(),
+		[idp](const paciente& listaPacientes) {
+			return listaPacientes.getIdPaciente() == idp;
+		});
+	if (buscarPaciente == listaPacientes.end()) {
+		cout << "ID de paciente no valido.\n";
+		return;
+	}
 	auto buscarMedico = find_if(listaMedicos.begin(), listaMedicos.end(),
 		[idm](const medico& listaMedicos) {
 			return listaMedicos.getIdMedico() == idm;
 		});
-
 	if (buscarMedico == listaMedicos.end()) {
 		cout << "ID de medico no valido.\n";
 		return;
