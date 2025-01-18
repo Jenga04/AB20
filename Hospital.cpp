@@ -425,6 +425,25 @@ void hospital::cargarMedico() {
 		cout << "No se pudo abrir el archivo. \n";
 		return;
 	}
+	string linea;
+	while (getline(archivo, linea)) {
+		stringstream leerLinea(linea);
+		int id;
+		string nombre, especialidad, disponible;
+		bool disponibilidad;
+
+		leerLinea >> id;
+		getline(leerLinea, nombre, ',');
+		getline(leerLinea, especialidad, ',');
+		getline(leerLinea, disponible, ',');
+
+		disponibilidad = (disponible == "Disponible");
+
+
+		listaMedicos.push_back(medico(id, nombre, especialidad, disponibilidad));
+	}
+	archivo.close();
+	cout << "Medicos cargados correctamente. \n";
 }
 void hospital::cargarCita() {
 	ifstream archivo(archivoCitas);
@@ -432,4 +451,22 @@ void hospital::cargarCita() {
 		cout << "No se pudo abrir el archivo. \n";
 		return;
 	}
+
+	string linea;
+	while (getline(archivo, linea)) {
+		stringstream leerLinea(linea);
+		int id, idp, idm, urgente;
+		string fecha, hora;
+
+		leerLinea >> id;
+		getline(leerLinea, fecha, ',');
+		getline(leerLinea, hora, ',');
+		leerLinea >> idp;
+		leerLinea >> idm;
+		leerLinea >> urgente;
+
+		listaCitas.push_back(cita(id, fecha, hora, idp, idm, urgente));
+	}
+	archivo.close();
+	cout << "Citas cargadas correctamente. \n";
 }
