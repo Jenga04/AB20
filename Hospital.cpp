@@ -403,7 +403,20 @@ void hospital::cargarPaciente() {
 		cout << "No se pudo abrir el archivo. \n";
 		return;
 	}
+	string linea;
+	while (getline(archivo, linea)) {
+		stringstream leerLinea(linea);
+		int id;
+		string nombre, fechaIngreso;
 
+		leerLinea >> id;
+		getline(leerLinea, nombre, ',');
+		getline(leerLinea, fechaIngreso, ',');
+
+		listaPacientes.push_back(paciente(id, nombre, fechaIngreso));
+	}
+	archivo.close();
+	cout << "Pacientes cargados correctamente. \n";
 }
 
 void hospital::cargarMedico() {

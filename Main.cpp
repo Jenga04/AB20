@@ -29,6 +29,7 @@ void menuPacientes(hospital& hospital) {
 		cout << "4: Lista de pacientes \n";
 		cout << "5: Lista por nombre \n";
 		cout << "6: Lista por fecha \n";
+		cout << "7: Buscar paciente \n";
 		cout << "0: Volver al menu principal\n";
 		cout << "Que desea realizar? ";
 		cin >> opcionPacientes;
@@ -93,6 +94,7 @@ void menuMedicos(hospital& hospital) {
 		cout << "4: Lista de medicos \n";
 		cout << "5: Lista por especialidad \n";
 		cout << "6: Lista por disponibilidad \n";
+		cout << "7: Buscar medico \n";
 		cout << "0: Volver al menu principal \n";
 		cout << "Que desea realizar? ";
 		cin >> opcionMedicos;
@@ -164,6 +166,7 @@ void menuCitas(hospital& hospital) {
 		cout << "4: Lista de citas \n";
 		cout << "5: Lista por urgencia \n";
 		cout << "6: Lista por fecha \n";
+		cout << "7: Buscar cita \n";
 		cout << "0: Volver al menu principal \n";
 		cout << "Que desea realizar? ";
 		cin >> opcionCitas;
