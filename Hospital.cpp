@@ -79,6 +79,14 @@ void hospital::registrarPaciente(
 	int id,
 	const string& n,
 	const string& fecha) {
+	auto buscarPaciente = find_if(listaPacientes.begin(), listaPacientes.end(),
+		[id](const paciente& listaPacientes) {
+			return listaPacientes.getIdPaciente() == id;
+		});
+	if (buscarPaciente != listaPacientes.end()) {
+		cout << "Este ID de paciente ya existe. \n";
+		return;
+	}
 	listaPacientes.push_back(paciente(id, n, fecha));
 	guardarPaciente();
 	cout << "Paciente registrado correctamente. \n";
@@ -86,8 +94,8 @@ void hospital::registrarPaciente(
 
 void hospital::eliminarPaciente(int idPaciente) {
 	auto buscarPaciente = find_if(listaPacientes.begin(), listaPacientes.end(),
-		[idPaciente](const paciente& listadoPacientes) {
-			return listadoPacientes.getIdPaciente() == idPaciente;
+		[idPaciente](const paciente& listaPacientes) {
+			return listaPacientes.getIdPaciente() == idPaciente;
 		});
 	if (buscarPaciente != listaPacientes.end()) {
 		listaPacientes.erase(buscarPaciente);
@@ -100,8 +108,8 @@ void hospital::eliminarPaciente(int idPaciente) {
 
 void hospital::modificarPaciente(int idPaciente, string nuevaFechaIngreso, string nuevoHistorial) {
 	auto buscarPaciente = find_if(listaPacientes.begin(), listaPacientes.end(),
-		[idPaciente](const paciente& listadoPacientes) {
-		return listadoPacientes.getIdPaciente() == idPaciente;
+		[idPaciente](const paciente& listaPacientes) {
+		return listaPacientes.getIdPaciente() == idPaciente;
 		});
 	if (buscarPaciente != listaPacientes.end()) {
 		buscarPaciente->setFechaIngreso(nuevaFechaIngreso);
@@ -152,6 +160,13 @@ void hospital::registrarMedico(
 	const string& n,
 	const string& tipo,
 	bool disponible) {
+	auto buscarMedico = find_if(listaMedicos.begin(), listaMedicos.end(),
+		[id](const medico& listaMedicos) {
+			return listaMedicos.getIdMedico() == id;
+		});
+	if (buscarMedico != listaMedicos.end()) {
+		cout << "Este ID de medico ya existe. \n";
+	}
 	listaMedicos.push_back(medico(id, n, tipo, disponible));
 	guardarMedico();
 	cout << "Medico registrado correctamente. \n";
@@ -232,6 +247,14 @@ void hospital::registrarCita(
 	int idp,
 	int idm,
 	int urgente) {
+	auto buscarCita = find_if(listaCitas.begin(), listaCitas.end(),
+		[id](const cita& listaCitas) {
+			return listaCitas.getIdCita() == id;
+		});
+	if (buscarCita != listaCitas.end()) {
+		cout << "Este ID de cita ya existe. \n ";
+		return;
+	}
 	auto buscarPaciente = find_if(listaPacientes.begin(), listaPacientes.end(),
 		[idp](const paciente& listaPacientes) {
 			return listaPacientes.getIdPaciente() == idp;
