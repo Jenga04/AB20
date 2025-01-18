@@ -138,7 +138,7 @@ void hospital::listaPacientesNombre() const {
 		return a.getNombrePaciente() < z.getNombrePaciente();
 		});
 	for (const auto& paciente : pacientes) {
-		paciente.DatosPaciente();
+		paciente.DatosPorNombre();
 	}
 }
 
@@ -149,7 +149,7 @@ void hospital::listaPacientesFecha() const {
 		return fechaCercana.getFechaIngreso() > fechaLejana.getFechaIngreso();
 		});
 	for (const auto& paciente : pacientes) {
-		paciente.DatosPaciente();
+		paciente.DatosPorFecha();
 	}
 }
 
@@ -219,7 +219,7 @@ void hospital::listaMedicosEspecialidad() const {
 		return a.getEspecialidad() < z.getEspecialidad();
 		});
 	for (const auto& medico : medicos) {
-		medico.datosMedico();
+		medico.datosPorEspecialidad();
 	}
 }
 
@@ -227,13 +227,13 @@ void hospital::listaMedicosDisponibles() const {
 	cout << "Medicos disponibles:\n";
 	for (const auto& medico : listaMedicos) {
 		if (medico.estaDisponible()) {
-			medico.datosMedico();
+			medico.datosPorDisponibilidad();
 		}
 	}
 	cout << "Medicos no disponobles:\n";
 	for (const auto& medico : listaMedicos) {
 		if (!medico.estaDisponible()) {
-			medico.datosMedico();
+			medico.datosPorDisponibilidad();
 		}
 	}
 }
@@ -347,7 +347,7 @@ void hospital::listaCitasUrgencia() const {
 		return urgenciaMayor.getUrgencia() > urganciaMenor.getUrgencia();
 		});
 	for (const auto& cita : citas) {
-		cita.datosCitas();
+		cita.datosPorUrgencia();
 	}
 }
 
@@ -359,7 +359,7 @@ void hospital::listaCitasFecha() const {
 		return fechaCercana.getFechaCita() > fechaLejana.getFechaCita();
 		});
 	for (const auto& cita : citas) {
-		cita.datosCitas();
+		cita.datosPorFecha();
 	}
 }
 
@@ -370,7 +370,7 @@ void hospital::guardarPaciente(){
 	archivo << "ID, Nombre, Fecha de ingreso \n";
 
 	for (auto& paciente : listaPacientes) {
-		archivo << paciente.getIdPaciente() << ", " << paciente.getNombrePaciente() << ", " << paciente.getFechaIngreso() << "\n";
+		archivo << paciente.getIdPaciente() << "," << paciente.getNombrePaciente() << "," << paciente.getFechaIngreso() << "\n";
 	}
 	archivo.close();
 }
@@ -390,7 +390,7 @@ void hospital::guardarCita() {
 	archivo << "ID, Fecha, Hora, ID del paciente, ID del medico, Urgencia \n";
 
 	for (const auto& cita : listaCitas) {
-		archivo << cita.getIdCita() << ", " << cita.getFechaCita() << ", " << cita.getHoraCita()<< ", " << cita.getIdPaciente() << ", " << cita.getIdMedico() << ", " << cita.getUrgencia() << "\n";
+		archivo << cita.getIdCita() << "," << cita.getFechaCita() << "," << cita.getHoraCita()<< "," << cita.getIdPaciente() << "," << cita.getIdMedico() << "," << cita.getUrgencia() << "\n";
 	}
 	archivo.close();
 }

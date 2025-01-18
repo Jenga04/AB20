@@ -31,6 +31,8 @@ public:
 	void setFechaCita(string nuevaFechaCita);
 	void setHoraCita(string nuevaHoraCita);
 	void datosCitas() const;
+	void datosPorUrgencia() const;
+	void datosPorFecha() const;
 };
 
 #endif //!CITA_H

@@ -43,7 +43,12 @@ void cita::setFechaCita(string nuevaFechaCita) {
 void cita::setHoraCita(string nuevaHoraCita) {
 	horaCita = nuevaHoraCita;
 }
-void cita::datosCitas() const{
+void cita::datosCitas() const {
 	cout << "Id de la cita: " << idCita << ", fecha y hora: " << fechaCita << " a las " << horaCita << ", ID del paciente : " << idPaciente << ", ID del medico : " << idMedico << ", Nivel de urgencia : " << urgencia <<"\n";
 }
-
+void cita::datosPorUrgencia() const {
+	cout << "Nivel de urgencia : " << urgencia << "Id de la cita : " << idCita << ", fecha y hora : " << fechaCita << " a las " << horaCita << ", ID del paciente : " << idPaciente << ", ID del medico : " << idMedico << "\n";
+}
+void cita::datosPorFecha() const {
+	cout << "Fecha y hora: " << fechaCita << " a las " << horaCita <<", ID de la cita: " << idCita <<  ", ID del paciente : " << idPaciente << ", ID del medico : " << idMedico << ", Nivel de urgencia : " << urgencia << "\n";
+}

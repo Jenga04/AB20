@@ -14,9 +14,9 @@ private:
 public:
 	medico(int id,
 		string n,
-		string tipo, 
+		string tipo,
 		bool disponible);
-	
+
 	int getIdMedico() const;
 	string getNombreMedico() const;
 	string getEspecialidad() const;
@@ -24,6 +24,8 @@ public:
 
 	void setDisponibilidad(bool nuevaDisponibilidad);
 	void datosMedico() const;
+	void datosPorEspecialidad() const;
+	void datosPorDisponibilidad() const;
 };
 
 #endif // !MEDICO_H

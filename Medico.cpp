@@ -24,5 +24,11 @@ void medico::setDisponibilidad(bool nuevaDisponibilidad) {
 	disponibilidad = nuevaDisponibilidad;
 }
 void medico::datosMedico() const {
-	cout << "ID del Medico: " << idMedico << ", nombre: " << nombreMedico << ",  especialidad: " << especialidad << ", disponibilidad : " << (disponibilidad ? "Si" : "No") <<"\n";
+	cout << "ID del medico: " << idMedico << ", nombre: " << nombreMedico << ",  especialidad: " << especialidad << ", disponibilidad: " << (disponibilidad ? "Si" : "No") <<"\n";
+}
+void medico::datosPorEspecialidad() const {
+	cout << "Especialidad: " << especialidad << ", ID: " << idMedico << ", nombre: " << nombreMedico << ", disponibilidad: " << (disponibilidad ? "Si" : "No") << "\n";
+}
+void medico::datosPorDisponibilidad() const {
+	cout <<"ID del medico: " << idMedico << ", nombre: " << nombreMedico << ",  especialidad: " << especialidad << "\n";
 }

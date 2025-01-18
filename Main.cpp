@@ -112,7 +112,7 @@ void menuMedicos(hospital& hospital) {
 			getline(cin, n);
 			cout << "Ingrese su especialidad: ";
 			getline(cin, tipo);
-			cout << "Esta disponible? (1: Si, 0: no)";
+			cout << "Esta disponible? (1: Si, 0: no): ";
 			cin >> disponible;
 			hospital.registrarMedico(id, n, tipo, disponible);
 			break;

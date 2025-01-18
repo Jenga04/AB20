@@ -22,6 +22,8 @@ public:
 
 	void setFechaIngreso(string nuevaFechaIngreso);
 	void DatosPaciente() const;
+	void DatosPorNombre() const;
+	void DatosPorFecha() const;
 };
 
 #endif // !Paciente.h
