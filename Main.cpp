@@ -38,8 +38,20 @@ void menuPacientes(hospital& hospital) {
 		case 1: {
 			int id;
 			string n;
-			cout << "ID del paciente: ";
-			cin >> id;
+			while (true) {
+				cout << "ID del paciente: ";
+				cin >> id;
+				if (cin.fail()) {
+					cout << "Entrada invalida. Ingrese valores numericos. \n";
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max() );
+					break;
+				}
+				else {
+					cin.ignore(numeric_limits<streamsize>::max());
+					break;
+				}
+			}
 			cout << "Nombre del paciente: ";
 			cin.ignore();
 			getline(cin, n);
@@ -110,10 +122,21 @@ void menuMedicos(hospital& hospital) {
 			int id;
 			string n, tipo;
 			bool disponible;
-			cout << "Ingrese ID: ";
-			cin >> id;
+			while (true) {
+				cout << "ID del medico: ";
+				cin >> id;
+				if (cin.fail()) {
+					cout << "Entrada invalida. Ingrese valores numericos. \n";
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max());
+					break;
+				}
+				else {
+					cin.ignore(numeric_limits<streamsize>::max());
+					break;
+				}
+			}
 			cout << "Ingrese nombre: ";
-			cin.ignore();
 			getline(cin, n);
 			cout << "Ingrese su especialidad: ";
 			getline(cin, tipo);
@@ -177,8 +200,20 @@ void menuCitas(hospital& hospital) {
 		case 1: {
 			int id, idp, idm, urgente;
 			string fechaCita, horaCita;
-			cout << "ID de la cita: ";
-			cin >> id;
+			while (true) {
+				cout << "ID de cita: ";
+				cin >> id;
+				if (cin.fail()) {
+					cout << "Entrada invalida. Ingrese valores numericos. \n";
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max());
+					break;
+				}
+				else {
+					cin.ignore(numeric_limits<streamsize>::max());
+					break;
+				}
+			}
 			cout << "ID del paciente: ";
 			cin >> idp;
 			cout << "ID del medico: ";
