@@ -19,29 +19,29 @@ hospital::hospital(const string& archivoPacientes, const string& archivoMedicos,
 
 //Validaciones de fecha y hora
 
-bool bisiesto(int año) {
-	return (año % 4 == 0 &&(año % 100 != 0 || año % 400 == 0));
+bool bisiesto(int anio) {
+	return (anio % 4 == 0 &&(anio % 100 != 0 || anio % 400 == 0));
 }
 
 bool mesValido(int mes) {
 	return mes >= 1 && mes <= 12;
 }
 
-bool diaValido(int dia, int mes, int año) {
+bool diaValido(int dia, int mes, int anio) {
 	vector<int> diasPorMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	if (bisiesto(año)) {
+	if (bisiesto(anio)) {
 		diasPorMes[1] = 29;
 	}
 	return dia >= 1 && dia <= diasPorMes[mes - 1];
 }
 
 bool hospital::validarFecha(const string& fecha) {
-	int dia, mes, año;
+	int dia, mes, anio;
 	char barraLateral;
 	stringstream defFecha(fecha);
-	defFecha >> dia >> barraLateral >> mes >> barraLateral >> año;
+	defFecha >> dia >> barraLateral >> mes >> barraLateral >> anio;
 
-	if (defFecha.fail() || barraLateral != '/' || !mesValido(mes) || !diaValido(dia, mes, año)) {
+	if (defFecha.fail() || barraLateral != '/' || !mesValido(mes) || !diaValido(dia, mes, anio)) {
 		return false;
 	}
 	return true;
@@ -52,10 +52,10 @@ bool hospital::validarFecha(const string& fecha) {
 
 	int diaExacto = diaLocal->tm_mday;
 	int mesExacto = diaLocal->tm_mon+1;
-	int añoExacto = diaLocal->tm_year+1900;
+	int anioExacto = diaLocal->tm_year+1900;
 
 	//Comprobar la fecha actual
-	if (año < añoExacto || (año == añoExacto && mes < mesExacto) || (año == añoExacto && mes == mesExacto && dia < diaExacto)) {
+	if (anio < anioExacto || (anio == anioExacto && mes < mesExacto) || (anio == anioExacto && mes == mesExacto && dia < diaExacto)) {
 		return false;
 	}
 	return true;
