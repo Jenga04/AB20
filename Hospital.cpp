@@ -153,6 +153,24 @@ void hospital::listaPacientesFecha() const {
 	}
 }
 
+void hospital::buscarPaciente(const string& nombre) const {
+
+	bool encontrado = false;
+
+	for (const auto& paciente : listaPacientes) {
+		string nombrePaciente = paciente.getNombrePaciente();
+		string nombreBuscado = nombre;
+
+		if (nombrePaciente.find(nombreBuscado) != string::npos) {
+			paciente.DatosPaciente();
+			encontrado = true;
+		}
+	}
+	if (!encontrado) {
+		cout << "No se encontraron pacientes con ese nombre. \n";
+	}
+}
+
 //Opciones de medicos
 
 void hospital::registrarMedico(

@@ -72,7 +72,13 @@ void menuPacientes(hospital& hospital) {
 		case 6:
 			hospital.listaPacientesFecha();
 			break;
-		case 7:
+		case 7: {
+			string nombre;
+			cout << "Ingrese el nombre del paciente: ";
+			cin.ignore();
+			getline(cin, nombre);
+			hospital.buscarPaciente(nombre);
+		}
 			break;
 		case 0:
 			cout << "Volviendo al menu principal \n";
@@ -94,7 +100,6 @@ void menuMedicos(hospital& hospital) {
 		cout << "4: Lista de medicos \n";
 		cout << "5: Lista por especialidad \n";
 		cout << "6: Lista por disponibilidad \n";
-		cout << "7: Buscar medico \n";
 		cout << "0: Volver al menu principal \n";
 		cout << "Que desea realizar? ";
 		cin >> opcionMedicos;
@@ -144,8 +149,6 @@ void menuMedicos(hospital& hospital) {
 		case 6:
 			hospital.listaMedicosDisponibles();
 			break;
-		case 7:
-			break;
 		case 0:
 			cout << "Volviendo al menu principal \n";
 			break;
@@ -166,7 +169,6 @@ void menuCitas(hospital& hospital) {
 		cout << "4: Lista de citas \n";
 		cout << "5: Lista por urgencia \n";
 		cout << "6: Lista por fecha \n";
-		cout << "7: Buscar cita \n";
 		cout << "0: Volver al menu principal \n";
 		cout << "Que desea realizar? ";
 		cin >> opcionCitas;
@@ -217,8 +219,6 @@ void menuCitas(hospital& hospital) {
 			break;
 		case 6:
 			hospital.listaCitasFecha();
-			break;
-		case 7:
 			break;
 		case 0:
 			cout << "Volviendo al menu principal \n";

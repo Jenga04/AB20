@@ -33,6 +33,7 @@ hospital(
 	void listadoPacientes() const;
 	void listaPacientesNombre() const;
 	void listaPacientesFecha() const;
+	void buscarPaciente(const string& nombre) const;
 
 //Medicos
 	
