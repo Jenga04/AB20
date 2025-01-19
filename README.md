@@ -52,8 +52,8 @@ ID,Nombre,Fecha de Ingreso,Historial
 
 
 ## Requisitos del Sistema
-- Compilador C++**.
-- Librerías estandar: <iostream>, <vector>, <string>, <fstream>, <sstream>, <algorithm>.
+- Compilador C++.
+- Librerías estandar: iostream, vector, string, fstream, sstream, algorithm.
 
 ## Ejecucion
 1. Compile y ejecute el programa.
