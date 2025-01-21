@@ -221,12 +221,10 @@ void hospital::listadoMedicos() const {
 	sort(medicos.begin(), medicos.end(), [](const medico& primero, const medico& ultimo) {
 		return primero.getIdMedico() < ultimo.getIdMedico();
 		});
-	for (const auto& medico : medicos) {
+
+	cout << "Lista de medicos:\n";
+	for (auto& medico : listaMedicos) {
 		medico.datosMedico();
-		cout << "Lista de medicos:\n";
-		for (auto& medico : listaMedicos) {
-			medico.datosMedico();
-		}
 	}
 }
 void hospital::listaMedicosEspecialidad() const {

@@ -123,6 +123,7 @@ void menuMedicos(hospital& hospital) {
 			cout << "ID del medico: ";
 			cin >> id;
 			cout << "Ingrese nombre: ";
+			cin.ignore();
 			getline(cin, n);
 			cout << "Ingrese su especialidad: ";
 			getline(cin, tipo);
@@ -257,7 +258,7 @@ void menuArchivos (hospital& hospital) {
 		cout << "1: Cargar pacientes \n";
 		cout << "2: Cargar medicos \n";
 		cout << "3: Cargar citas \n";
-		cout << "0: Salir \n";
+		cout << "0: Volver al menu principal \n";
 		cout << "Que desea realizar? ";
 		cin >> opcionArchivos;
 
